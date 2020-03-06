@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="ru" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>AWK — Википедия</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":[",\t."," \t,"],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","январь","февраль","март","апрель","май","июнь","июль","август","сентябрь","октябрь","ноябрь","декабрь"],"wgMonthNamesShort":["","янв","фев","мар","апр","май","июн","июл","авг","сен","окт","ноя","дек"],"wgRequestId":"Xl9IwgpAAEQAAFWc3A4AAABF","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"AWK","wgTitle":"AWK","wgCurRevisionId":94352681,"wgRevisionId":94352681,"wgArticleId":15561,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Википедия:Статьи с переопределением значения из Викиданных",
+"ПРО:ИТ:Статьи по алфавиту","ПРО:ИТ:Последняя правка: в позапрошлом году","Языки программирования по алфавиту","Языки программирования, появившиеся в 1977 году","Утилиты Unix","Инструменты Unix для обработки текста","Предметно-ориентированные языки программирования"],"wgPageContentLanguage":"ru","wgPageContentModel":"wikitext","wgRelevantPageName":"AWK","wgRelevantArticleId":15561,"wgIsProbablyEditable":!0,"wgRelevantPageIsProbablyEditable":!0,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"accuracy":{"levels":3,"quality":2,"pristine":4}}},"wgStableRevisionId":94352681,"wgMediaViewerOnClick":!0,"wgMediaViewerEnabledByDefault":!0,"wgPopupsReferencePreviews":!1,"wgPopupsConflictsWithNavPopupGadget":!1,"wgVisualEditor":{"pageLanguageCode":"ru"
+,"pageLanguageDir":"ltr","pageVariantFallbacks":"ru"},"wgMFDisplayWikibaseDescriptions":{"search":!0,"nearby":!0,"watchlist":!0,"tagline":!1},"wgWMESchemaEditAttemptStepOversample":!1,"wgULSCurrentAutonym":"русский","wgNoticeProject":"wikipedia","wgWikibaseItemId":"Q213970","wgCentralAuthMobileDomain":!1,"wgEditSubmitButtonLabelPublish":!0};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","noscript":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.flaggedRevs.icons":"ready","oojs-ui-core.styles":"ready","oojs-ui.styles.indicators":"ready","mediawiki.widgets.styles":"ready","oojs-ui-core.icons":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.toc.styles":"ready","skins.vector.styles":"ready","wikibase.client.init":"ready","ext.flaggedRevs.basic":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready",
+"ext.uls.interlanguage":"ready","ext.wikimediaBadges":"ready"};RLPAGEMODULES=["ext.scribunto.logs","site","mediawiki.page.startup","skins.vector.js","mediawiki.page.ready","mediawiki.toc","ext.flaggedRevs.advanced","ext.gadget.collapserefs","ext.gadget.directLinkToCommons","ext.gadget.referenceTooltips","ext.gadget.logo","ext.gadget.edittop","ext.gadget.blpEditNotice","ext.gadget.wikibugs","ext.gadget.sidebarRelated","ext.centralauth.centralautologin","mmv.head","mmv.bootstrap.autostart","ext.popups","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.uls.compactlinks","ext.uls.interface","ext.cx.eventlogging.campaigns","ext.quicksurveys.init","ext.centralNotice.geoIP","ext.centralNotice.startUp"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1cm6q",function($,jQuery,require,module){/*@nomin*/mw.user.options.set({"variant":"ru"});
+});mw.loader.implement("user.tokens@tffin",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="/w/load.php?lang=ru&amp;modules=ext.flaggedRevs.basic%2Cicons%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.toc.styles%7Cmediawiki.widgets.styles%7Coojs-ui-core.icons%2Cstyles%7Coojs-ui.styles.indicators%7Cskins.vector.styles%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/w/load.php?lang=ru&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?lang=ru&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<noscript><link rel="stylesheet" href="/w/load.php?lang=ru&amp;modules=noscript&amp;only=styles&amp;skin=vector"/></noscript>
+<meta name="generator" content="MediaWiki 1.35.0-wmf.21"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<link rel="alternate" type="application/x-wiki" title="Править" href="/w/index.php?title=AWK&amp;action=edit"/>
+<link rel="edit" title="Править" href="/w/index.php?title=AWK&amp;action=edit"/>
+<link rel="apple-touch-icon" href="/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Википедия (ru)"/>
+<link rel="EditURI" type="application/rsd+xml" href="//ru.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="//creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="Википедия — Atom-лента" href="/w/index.php?title=%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:%D0%A1%D0%B2%D0%B5%D0%B6%D0%B8%D0%B5_%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B8&amp;feed=atom"/>
+<link rel="canonical" href="https://ru.wikipedia.org/wiki/AWK"/>
+<link rel="dns-prefetch" href="//login.wikimedia.org"/>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+<!--[if lt IE 9]><script src="/w/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-AWK rootpage-AWK skin-vector action-view">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"><!-- CentralNotice --></div>
+	<div class="mw-indicators mw-body-content">
+</div>
+
+	<h1 id="firstHeading" class="firstHeading" lang="ru">AWK</h1>
+	
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">Материал из Википедии — свободной энциклопедии</div>
+		<div id="contentSub"></div>
+		
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Перейти к навигации</a>
+		<a class="mw-jump-link" href="#p-search">Перейти к поиску</a>
+		<div id="mw-content-text" lang="ru" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><table class="infobox" style="" data-name="Язык программирования"><tbody><tr><th colspan="2" class="infobox-above" style="background:#eaecf0;">AWK</th></tr>
+<tr>
+<th class="plainlist">Класс языка</th>
+<td class="plainlist">
+<span class="no-wikidata" data-wikidata-property-id="P31"><a href="/wiki/%D0%A1%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%BE%D0%B2%D1%8B%D0%B9_%D1%8F%D0%B7%D1%8B%D0%BA" class="mw-redirect" title="Скриптовый язык">скриптовый</a>, <a href="/wiki/%D0%9F%D1%80%D0%BE%D1%86%D0%B5%D0%B4%D1%83%D1%80%D0%BD%D0%BE%D0%B5_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5" title="Процедурное программирование">процедурный</a>, <a href="/wiki/%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5,_%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D1%8F%D0%B5%D0%BC%D0%BE%D0%B5_%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8" title="Программирование, управляемое данными">управляемый данными</a></span></td>
+</tr>
+<tr>
+<th class="plainlist">Появился в</th>
+<td class="plainlist">
+<span class="no-wikidata" data-wikidata-property-id="P571">1977</span></td>
+</tr>
+<tr>
+<th class="plainlist">Автор</th>
+<td class="plainlist">
+<span class="no-wikidata" data-wikidata-property-id="P287"><a href="/wiki/%D0%90%D1%85%D0%BE,_%D0%90%D0%BB%D1%8C%D1%84%D1%80%D0%B5%D0%B4" title="Ахо, Альфред">Альфред Ахо</a>, <a href="/w/index.php?title=%D0%92%D0%B0%D0%B9%D0%BD%D0%B1%D0%B5%D1%80%D0%B3%D0%B5%D1%80,_%D0%9F%D0%B8%D1%82%D0%B5%D1%80&amp;action=edit&amp;redlink=1" class="new" title="Вайнбергер, Питер (страница отсутствует)">Питер Вайнбергер</a> и <a href="/wiki/%D0%9A%D0%B5%D1%80%D0%BD%D0%B8%D0%B3%D0%B0%D0%BD,_%D0%91%D1%80%D0%B0%D0%B9%D0%B0%D0%BD" title="Керниган, Брайан">Брайан Керниган</a></span></td>
+</tr>
+<tr>
+<th class="plainlist">Разработчик</th>
+<td class="plainlist">
+<span class="wikidata-claim" data-wikidata-property-id="P178" data-wikidata-claim-id="Q213970$695389C9-6183-4D46-80D4-CC2B283C3CFD"><span class="wikidata-snak wikidata-main-snak"><a href="/wiki/%D0%90%D1%85%D0%BE,_%D0%90%D0%BB%D1%8C%D1%84%D1%80%D0%B5%D0%B4" title="Ахо, Альфред">Альфред Ахо</a></span></span>,&#32;<span class="wikidata-claim" data-wikidata-property-id="P178" data-wikidata-claim-id="Q213970$ef735512-4172-4e77-d293-aba7248e7a29"><span class="wikidata-snak wikidata-main-snak"><a href="/wiki/%D0%9A%D0%B5%D1%80%D0%BD%D0%B8%D0%B3%D0%B0%D0%BD,_%D0%91%D1%80%D0%B0%D0%B9%D0%B0%D0%BD" title="Керниган, Брайан">Брайан Керниган</a></span></span>&#32;и&#32;<span class="wikidata-claim" data-wikidata-property-id="P178" data-wikidata-claim-id="Q213970$83217905-40b9-25d1-ea37-33a70ab97fa6"><span class="wikidata-snak wikidata-main-snak"><span class="plainlinks"><a class="external text" href="https://ru.wikipedia.org/w/index.php?title=%D0%9F%D0%B8%D1%82%D0%B5%D1%80_%D0%92%D0%B0%D0%B9%D0%BD%D0%B1%D0%B5%D1%80%D0%B3%D0%B5%D1%80&amp;action=edit&amp;preload=Ш:Preload/Викиданные&amp;preloadparams%5B%5D=%3C!--НЕ%20ПУБЛИКУЙТЕ%20ЭТУ%20%22РЫБУ%22%20НЕ%20ДОПОЛНИВ!--%3E%0A{{Универсальная%20карточка%7CQ92959}}%0A&#39;&#39;&#39;%D0%9F%D0%B8%D1%82%D0%B5%D1%80+%D0%92%D0%B0%D0%B9%D0%BD%D0%B1%D0%B5%D1%80%D0%B3%D0%B5%D1%80&#39;&#39;&#39;%20—%20%0A%0A==%20Примечания%20==%0A{{примечания}}"><span style="color: #ba0000; text-decoration: inherit; -moz-text-decoration-color: #ba0000; text-decoration-color: #ba0000;">Питер Вайнбергер</span></a></span><sup><a href="https://www.wikidata.org/wiki/Q92959" class="extiw" title="d:Q92959">[d]</a></sup></span></span></td>
+</tr>
+<tr>
+<th class="plainlist"><a href="/wiki/%D0%A1%D1%82%D0%B0%D0%B4%D0%B8%D0%B8_%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BE%D0%B1%D0%B5%D1%81%D0%BF%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D1%8F" title="Стадии разработки программного обеспечения">Выпуск</a></th>
+<td class="plainlist">
+<span class="no-wikidata" data-wikidata-property-id="P348"><span class="no-wikidata" data-wikidata-property-id="P348"><a rel="nofollow" class="external text" href="http://www.opengroup.org/onlinepubs/000095399/utilities/awk.html">IEEE Std 1003.1-2004</a> (POSIX) / 1985</span></span></td>
+</tr>
+<tr>
+<th class="plainlist"><a href="/wiki/%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D1%82%D0%B8%D0%BF%D0%BE%D0%B2" title="Система типов">Система типов</a></th>
+<td class="plainlist">
+нет</td>
+</tr>
+<tr>
+<th class="plainlist">Основные реализации</th>
+<td class="plainlist">
+awk, GNU Awk, mawk, nawk, MKS AWK, Thompson AWK (компилятор), Awka (компилятор)</td>
+</tr>
+<tr>
+<th class="plainlist">Диалекты</th>
+<td class="plainlist">
+<i>old awk</i> oawk 1977, <i>new awk</i> nawk 1985, <i>GNU Awk</i> gawk</td>
+</tr>
+<tr>
+<th class="plainlist">Испытал влияние</th>
+<td class="plainlist">
+<span class="no-wikidata" data-wikidata-property-id="P737"><a href="/wiki/C_(%D1%8F%D0%B7%D1%8B%D0%BA_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)" class="mw-redirect" title="C (язык программирования)">C</a>, <a href="/wiki/%D0%A1%D0%BD%D0%BE%D0%B1%D0%BE%D0%BB" title="Снобол">SNOBOL</a>4, <a href="/wiki/Bourne_shell" title="Bourne shell">Bourne shell</a></span></td>
+</tr>
+<tr>
+<th class="plainlist">Повлиял на</th>
+<td class="plainlist">
+<a href="/wiki/Perl" title="Perl">Perl</a>, <a href="/w/index.php?title=Korn_Shell&amp;action=edit&amp;redlink=1" class="new" title="Korn Shell (страница отсутствует)">Korn Shell</a> (<i>ksh93</i>, <i>dtksh</i>, <i>tksh</i>), <a href="/wiki/Lua" title="Lua">Lua</a></td>
+</tr>
+</tbody></table>
+<p><b>AWK</b>&#160;— <a href="/wiki/C-%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D1%8B%D0%B9_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81" class="mw-redirect" title="C-подобный синтаксис">C-подобный</a> <a href="/wiki/%D0%A1%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%BE%D0%B2%D1%8B%D0%B9_%D1%8F%D0%B7%D1%8B%D0%BA" class="mw-redirect" title="Скриптовый язык">скриптовый язык</a> построчного разбора и обработки входного потока (например, текстового файла) по заданным шаблонам (<a href="/wiki/%D0%A0%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D1%8B%D0%B5_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F" title="Регулярные выражения">регулярным выражениям</a>). Может использоваться в <a href="/wiki/%D0%A1%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B9_%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%BD%D0%BE%D0%B9_%D1%81%D1%82%D1%80%D0%BE%D0%BA%D0%B8" title="Сценарий командной строки">сценариях командной строки</a>.
+</p><p>Название AWK складывается из инициалов разработчиков языка: <a href="/wiki/%D0%90%D1%85%D0%BE,_%D0%90%D0%BB%D1%8C%D1%84%D1%80%D0%B5%D0%B4" title="Ахо, Альфред">Alfred V. <b>A</b>ho</a>, <span class="iw plainlinks" data-title="Вайнбергер, Питер" data-lang="en" data-lang-name="англ."><a href="/w/index.php?title=%D0%92%D0%B0%D0%B9%D0%BD%D0%B1%D0%B5%D1%80%D0%B3%D0%B5%D1%80,_%D0%9F%D0%B8%D1%82%D0%B5%D1%80&amp;action=edit&amp;redlink=1" class="new" title="Вайнбергер, Питер (страница отсутствует)">Peter J. <b>W</b>einberger</a><sup class="iw&#95;_note noprint" style="font-style:normal; font-weight:normal;"><a href="https://en.wikipedia.org/wiki/Peter_J._Weinberger" class="extiw" title="en:Peter J. Weinberger"><span class="iw&#95;_tooltip" title="Peter J. Weinberger — версия статьи «Вайнбергер, Питер» на английском языке">[en]</span></a></sup></span> и <a href="/wiki/%D0%9A%D0%B5%D1%80%D0%BD%D0%B8%D0%B3%D0%B0%D0%BD,_%D0%91%D1%80%D0%B0%D0%B9%D0%B0%D0%BD_%D0%A3%D0%B8%D0%BB%D1%8C%D1%8F%D0%BC" class="mw-redirect" title="Керниган, Брайан Уильям">Brian W. <b>K</b>ernighan</a>. Первая версия AWK была написана в <a href="/wiki/1977_%D0%B3%D0%BE%D0%B4" title="1977 год">1977 году</a> в <a href="/wiki/Bell_Labs" class="mw-redirect" title="Bell Labs">AT&amp;T Bell Laboratories</a>.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="ru" dir="ltr"><h2 id="mw-toc-heading">Содержание</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Структура_программы"><span class="tocnumber">1</span> <span class="toctext">Структура программы</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Конструкции_языка"><span class="tocnumber">2</span> <span class="toctext">Конструкции языка</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Условия"><span class="tocnumber">2.1</span> <span class="toctext">Условия</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Циклы"><span class="tocnumber">2.2</span> <span class="toctext">Циклы</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#do"><span class="tocnumber">2.2.1</span> <span class="toctext">do</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#while"><span class="tocnumber">2.2.2</span> <span class="toctext">while</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#for_(индексная_форма)"><span class="tocnumber">2.2.3</span> <span class="toctext">for (индексная форма)</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#for_(ассоциативная_форма)"><span class="tocnumber">2.2.4</span> <span class="toctext">for (ассоциативная форма)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="#Встроенные_переменные"><span class="tocnumber">3</span> <span class="toctext">Встроенные переменные</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#Встроенные_функции"><span class="tocnumber">4</span> <span class="toctext">Встроенные функции</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Примеры"><span class="tocnumber">5</span> <span class="toctext">Примеры</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#Ссылки"><span class="tocnumber">6</span> <span class="toctext">Ссылки</span></a></li>
+</ul>
+</div>
+
+<h2><span id=".D0.A1.D1.82.D1.80.D1.83.D0.BA.D1.82.D1.83.D1.80.D0.B0_.D0.BF.D1.80.D0.BE.D0.B3.D1.80.D0.B0.D0.BC.D0.BC.D1.8B"></span><span class="mw-headline" id="Структура_программы">Структура программы</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=AWK&amp;veaction=edit&amp;section=1" class="mw-editsection-visualeditor" title="Редактировать раздел «Структура программы»">править</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=AWK&amp;action=edit&amp;section=1" title="Редактировать раздел «Структура программы»">править код</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>AWK рассматривает входной поток как список записей. Каждая запись делится на поля. На основе этой информации выполняется некоторый определённый программистом алгоритм обработки. По умолчанию разделителем записей является символ новой строки (то есть записи&#160;— это то же самое, что строки), разделителем полей&#160;— символ пробела или табуляции, или последовательность таких символов. Символы-разделители можно явно определить в программе. Символ-разделитель полей можно определить и в командной строке.
+</p><p>AWK-программа состоит из операторов (правил), имеющих вид:
+</p>
+<pre>шаблон {действие}
+шаблон {действие}
+. . .
+</pre>
+<p>Каждая запись поочерёдно сравнивается со всеми шаблонами, и каждый раз, когда она соответствует шаблону, выполняется указанное действие. Если <i>шаблон</i> не указан, то <i>действие</i> выполняется для любой записи. Если не указано <i>действие</i>, то запись выводится. В AWK также существует 2 предопределённых шаблона <b>BEGIN</b> и <b>END</b>. BEGIN выполняется до начала обработки входного потока. END&#160;— после обработки последней записи входного потока.
+</p><p><i>Действие</i> может состоять из последовательности операторов, разделяемой точкой с запятой, переводом строки или закрывающей скобкой.
+</p>
+<h2><span id=".D0.9A.D0.BE.D0.BD.D1.81.D1.82.D1.80.D1.83.D0.BA.D1.86.D0.B8.D0.B8_.D1.8F.D0.B7.D1.8B.D0.BA.D0.B0"></span><span class="mw-headline" id="Конструкции_языка">Конструкции языка</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=AWK&amp;veaction=edit&amp;section=2" class="mw-editsection-visualeditor" title="Редактировать раздел «Конструкции языка»">править</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=AWK&amp;action=edit&amp;section=2" title="Редактировать раздел «Конструкции языка»">править код</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span id=".D0.A3.D1.81.D0.BB.D0.BE.D0.B2.D0.B8.D1.8F"></span><span class="mw-headline" id="Условия">Условия</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=AWK&amp;veaction=edit&amp;section=3" class="mw-editsection-visualeditor" title="Редактировать раздел «Условия»">править</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=AWK&amp;action=edit&amp;section=3" title="Редактировать раздел «Условия»">править код</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>if(условие)
+then
+  {
+   Список действий 1
+  }
+else
+  {
+   Список действий 2
+  }
+
+</pre>
+<h3><span id=".D0.A6.D0.B8.D0.BA.D0.BB.D1.8B"></span><span class="mw-headline" id="Циклы">Циклы</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=AWK&amp;veaction=edit&amp;section=4" class="mw-editsection-visualeditor" title="Редактировать раздел «Циклы»">править</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=AWK&amp;action=edit&amp;section=4" title="Редактировать раздел «Циклы»">править код</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h4><span class="mw-headline" id="do">do</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=AWK&amp;veaction=edit&amp;section=5" class="mw-editsection-visualeditor" title="Редактировать раздел «do»">править</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=AWK&amp;action=edit&amp;section=5" title="Редактировать раздел «do»">править код</a><span class="mw-editsection-bracket">]</span></span></h4>
+<pre>do{
+    Тело цикла
+}while (условие)
+</pre>
+<h4><span class="mw-headline" id="while">while</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=AWK&amp;veaction=edit&amp;section=6" class="mw-editsection-visualeditor" title="Редактировать раздел «while»">править</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=AWK&amp;action=edit&amp;section=6" title="Редактировать раздел «while»">править код</a><span class="mw-editsection-bracket">]</span></span></h4>
+<pre>while(условие){
+    Тело цикла
+}
+</pre>
+<h4><span id="for_.28.D0.B8.D0.BD.D0.B4.D0.B5.D0.BA.D1.81.D0.BD.D0.B0.D1.8F_.D1.84.D0.BE.D1.80.D0.BC.D0.B0.29"></span><span class="mw-headline" id="for_(индексная_форма)">for (индексная форма)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=AWK&amp;veaction=edit&amp;section=7" class="mw-editsection-visualeditor" title="Редактировать раздел «for (индексная форма)»">править</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=AWK&amp;action=edit&amp;section=7" title="Редактировать раздел «for (индексная форма)»">править код</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Цикл for в форме, ориентированной на обработку <a href="/wiki/%D0%9C%D0%B0%D1%81%D1%81%D0%B8%D0%B2_(%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)" class="mw-redirect" title="Массив (программирование)">индексных массивов</a>, имеет вид:
+</p>
+<pre>for(секция инициализации;секция условия;секция обновления итератора){
+    Тело цикла
+}
+</pre>
+<h4><span id="for_.28.D0.B0.D1.81.D1.81.D0.BE.D1.86.D0.B8.D0.B0.D1.82.D0.B8.D0.B2.D0.BD.D0.B0.D1.8F_.D1.84.D0.BE.D1.80.D0.BC.D0.B0.29"></span><span class="mw-headline" id="for_(ассоциативная_форма)">for (ассоциативная форма)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=AWK&amp;veaction=edit&amp;section=8" class="mw-editsection-visualeditor" title="Редактировать раздел «for (ассоциативная форма)»">править</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=AWK&amp;action=edit&amp;section=8" title="Редактировать раздел «for (ассоциативная форма)»">править код</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Цикл for в форме, ориентированной на обработку <a href="/wiki/%D0%90%D1%81%D1%81%D0%BE%D1%86%D0%B8%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9_%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2" title="Ассоциативный массив">ассоциативных массивов</a>, имеет вид:
+</p>
+<pre>for(итератор in массив){
+    Тело цикла
+}
+</pre>
+<h2><span id=".D0.92.D1.81.D1.82.D1.80.D0.BE.D0.B5.D0.BD.D0.BD.D1.8B.D0.B5_.D0.BF.D0.B5.D1.80.D0.B5.D0.BC.D0.B5.D0.BD.D0.BD.D1.8B.D0.B5"></span><span class="mw-headline" id="Встроенные_переменные">Встроенные переменные</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=AWK&amp;veaction=edit&amp;section=9" class="mw-editsection-visualeditor" title="Редактировать раздел «Встроенные переменные»">править</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=AWK&amp;action=edit&amp;section=9" title="Редактировать раздел «Встроенные переменные»">править код</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="wikitable">
+<tbody><tr>
+<th>Переменная</th>
+<th>Содержание</th>
+<th>Значение по умолчанию
+</th></tr>
+<tr>
+<td>ARGC</td>
+<td>Число аргументов командной строки</td>
+<td>-
+</td></tr>
+<tr>
+<td>ARGV</td>
+<td>Массив аргументов командной строки</td>
+<td>-
+</td></tr>
+<tr>
+<td>ENVIRON</td>
+<td>Массив, содержащий <a href="/wiki/%D0%9F%D0%B5%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F_%D1%81%D1%80%D0%B5%D0%B4%D1%8B" title="Переменная среды">переменные окружения</a></td>
+<td>-
+</td></tr>
+<tr>
+<td>FILENAME</td>
+<td>Обрабатываемый входной файл</td>
+<td>-
+</td></tr>
+<tr>
+<td>FNR</td>
+<td>Номер записи в текущем файле</td>
+<td>-
+</td></tr>
+<tr>
+<td>FS</td>
+<td>Разделитель полей записи на вводе</td>
+<td>пробел(ы) и/или табуляция
+</td></tr>
+<tr>
+<td>NF</td>
+<td>Число полей в текущей записи</td>
+<td>-
+</td></tr>
+<tr>
+<td>NR</td>
+<td>Номер записи (общее число считанных записей)</td>
+<td>-
+</td></tr>
+<tr>
+<td>OFMT</td>
+<td>Формат распечатки чисел</td>
+<td>%.6g
+</td></tr>
+<tr>
+<td>OFS</td>
+<td>Разделитель полей записи на выводе (символ)</td>
+<td>пробел(ы) и/или табуляция
+</td></tr>
+<tr>
+<td>ORS</td>
+<td>Разделитель записей на выводе AWK-программы (символ)</td>
+<td>\0
+</td></tr>
+<tr>
+<td>RS</td>
+<td>Разделитель записей на вводе (символ)</td>
+<td>\0
+</td></tr>
+<tr>
+<td>RSTART</td>
+<td>Позиция начала подстроки, найденной функцией <code>match</code>
+</td>
+<td>-
+</td></tr>
+<tr>
+<td>RLENGTH</td>
+<td>Длина подстроки, найденной функцией <code>match</code>
+</td>
+<td>-
+</td></tr>
+<tr>
+<td>SUBSEP</td>
+<td>Разделитель индексов в многомерных массивах
+</td>
+<td>\034
+</td></tr></tbody></table>
+<h2><span id=".D0.92.D1.81.D1.82.D1.80.D0.BE.D0.B5.D0.BD.D0.BD.D1.8B.D0.B5_.D1.84.D1.83.D0.BD.D0.BA.D1.86.D0.B8.D0.B8"></span><span class="mw-headline" id="Встроенные_функции">Встроенные функции</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=AWK&amp;veaction=edit&amp;section=10" class="mw-editsection-visualeditor" title="Редактировать раздел «Встроенные функции»">править</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=AWK&amp;action=edit&amp;section=10" title="Редактировать раздел «Встроенные функции»">править код</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h2><span id=".D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80.D1.8B"></span><span class="mw-headline" id="Примеры">Примеры</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=AWK&amp;veaction=edit&amp;section=11" class="mw-editsection-visualeditor" title="Редактировать раздел «Примеры»">править</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=AWK&amp;action=edit&amp;section=11" title="Редактировать раздел «Примеры»">править код</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>«<a href="/wiki/Hello_world!" class="mw-redirect" title="Hello world!">Hello world!</a>»
+</p>
+<pre>BEGIN{print "Hello World!"; exit}
+</pre>
+<p>Печать длины самой длинной строки:
+</p>
+<pre>{ if (length($0) &gt; max) max = length($0) }
+END { print max }
+</pre>
+<p>Печать всех строк длиннее 80 символов:
+</p>
+<pre>{ if (length($0) &gt; 80) print $0 }
+</pre>
+<p>Печать всех строк, имеющих хотя бы одно поле:
+</p>
+<pre>NF &gt; 0
+</pre>
+<p>Печать количества строк в файле:
+</p>
+<pre>END { print NR }
+</pre>
+<p>Печать строк, номера которых кратны 3:
+</p>
+<pre>{ if (FNR%3==0) print $0 }
+</pre>
+<p>Печать остатка входной строки, следующего за первыми тремя полями:
+</p>
+<pre>{
+   # поиск начала 4-го поля...
+   match($0,/[ \t]*[^ \t]*[ \t]*[^ \t]*[ \t]*[^ \t]*[ \t]*/)
+   # ...печать остатка входной строки с найденной позиции
+   print substr($0,1+RLENGTH)
+}
+</pre>
+<h2><span id=".D0.A1.D1.81.D1.8B.D0.BB.D0.BA.D0.B8"></span><span class="mw-headline" id="Ссылки">Ссылки</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=AWK&amp;veaction=edit&amp;section=12" class="mw-editsection-visualeditor" title="Редактировать раздел «Ссылки»">править</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=AWK&amp;action=edit&amp;section=12" title="Редактировать раздел «Ссылки»">править код</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://www.math.spbu.ru/user/rus/cluster/Doc/Library/awk_baluev/awk_bal_oglav.shtml">Эффективное программирование на языке AWK. Руководство пользователя для GNU Awk</a> Версия 1.0.4, апрель 1999. Arnold D. Robbins, перевод Балуева А. Н.&#160;<span class="ref-info" style="cursor:help;" title="на русском языке">(рус.)</span></li>
+<li><a rel="nofollow" class="external text" href="http://lib.ru/MAN/DEMOS210/awk.txt">Язык обработки структурированных текстов AWK</a>&#160;<span class="ref-info" style="cursor:help;" title="на русском языке">(рус.)</span></li>
+<li><a rel="nofollow" class="external text" href="http://www.lissyara.su/?id=1077">Документация</a>&#160;<span class="ref-info" style="cursor:help;" title="на русском языке">(рус.)</span></li>
+<li><a rel="nofollow" class="external text" href="http://www.gnu.org/software/gawk/gawk.html">GAWK (GNU Awk)</a>&#160;<span class="ref-info" style="cursor:help;" title="на английском языке">(англ.)</span></li>
+<li><a rel="nofollow" class="external text" href="http://gnuwin32.sourceforge.net/packages/gawk.htm">Gawk for Windows</a>&#160;<span class="ref-info" style="cursor:help;" title="на английском языке">(англ.)</span></li>
+<li><a rel="nofollow" class="external text" href="http://www.catonmat.net/blog/awk-nawk-and-gawk-cheat-sheet/">Awk, Nawk and GNU Awk Cheat Sheet</a>&#160;<span class="ref-info" style="cursor:help;" title="на английском языке">(англ.)</span></li>
+<li><a rel="nofollow" class="external text" href="http://opennet.ru/man.shtml?topic=awk&amp;category=1">Интерактивная система просмотра системных руководств (man-ов)</a>&#160;<span class="ref-info" style="cursor:help;" title="на русском языке">(рус.)</span></li>
+<li><a rel="nofollow" class="external text" href="http://citforum.ru/operating_systems/unixuser/gl10_1.shtml">awk — язык сканирования и обработки текста</a> из <a rel="nofollow" class="external text" href="http://citforum.ru/operating_systems/unixuser/index.shtml">Операционная система UNIX (руководство пользователя)</a></li></ul>
+<div role="navigation" class="navbox" aria-labelledby="Команды_Unix" style="padding:3px"><table class="nowraplinks collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><span style="float:left;text-align:left;width:5em;margin-right:0.5em"><a href="/wiki/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD:%D0%9A%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D1%8B_Unix" title="Просмотр этого шаблона"><img alt="⛭" src="//upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Wikipedia_interwiki_section_gear_icon.svg/14px-Wikipedia_interwiki_section_gear_icon.svg.png" decoding="async" width="14" height="14" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Wikipedia_interwiki_section_gear_icon.svg/21px-Wikipedia_interwiki_section_gear_icon.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Wikipedia_interwiki_section_gear_icon.svg/28px-Wikipedia_interwiki_section_gear_icon.svg.png 2x" data-file-width="14" data-file-height="14" /></a></span><div id="Команды_Unix" style="font-size:114%;margin:0 5em">Команды Unix</div></th></tr><tr><td class="navbox-list navbox-odd" style="width:100%;padding:0px"><div style="padding:0em 0.25em"></div><table class="nowraplinks collapsible uncollapsed navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><span style="float:left;text-align:left;width:5em;margin-right:0.5em"><a href="/wiki/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD:POSIX.1-2008" title="Просмотр этого шаблона"><img alt="⛭" src="//upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Wikipedia_interwiki_section_gear_icon.svg/14px-Wikipedia_interwiki_section_gear_icon.svg.png" decoding="async" width="14" height="14" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Wikipedia_interwiki_section_gear_icon.svg/21px-Wikipedia_interwiki_section_gear_icon.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Wikipedia_interwiki_section_gear_icon.svg/28px-Wikipedia_interwiki_section_gear_icon.svg.png 2x" data-file-width="14" data-file-height="14" /></a></span><div id="Утилиты_POSIX.1-2008" style="font-size:114%;margin:0 5em">Утилиты <a href="/wiki/POSIX" title="POSIX">POSIX.1-2008</a></div></th></tr><tr><td class="navbox-list navbox-odd hlist" style="width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><a href="/w/index.php?title=Admin&amp;action=edit&amp;redlink=1" class="new" title="Admin (страница отсутствует)">admin</a></li>
+<li><a href="/wiki/Alias_(bash)" title="Alias (bash)">alias</a></li>
+<li><a href="/wiki/Ar_(Unix)" title="Ar (Unix)">ar</a></li>
+<li><a href="/w/index.php?title=Asa&amp;action=edit&amp;redlink=1" class="new" title="Asa (страница отсутствует)">asa</a></li>
+<li><a href="/wiki/At" title="At">at</a></li>
+<li><a href="/wiki/Awk" class="mw-redirect" title="Awk">awk</a></li>
+<li><a href="/wiki/Basename" title="Basename">basename</a></li>
+<li><a href="/w/index.php?title=Batch&amp;action=edit&amp;redlink=1" class="new" title="Batch (страница отсутствует)">batch</a></li>
+<li><a href="/wiki/Bc" title="Bc">bc</a></li>
+<li><a href="/wiki/Bg" class="mw-redirect" title="Bg">bg</a></li>
+<li><a href="/w/index.php?title=C99_(%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%B0)&amp;action=edit&amp;redlink=1" class="new" title="C99 (команда) (страница отсутствует)">c99</a></li>
+<li><a href="/w/index.php?title=Cal&amp;action=edit&amp;redlink=1" class="new" title="Cal (страница отсутствует)">cal</a></li>
+<li><a href="/wiki/Cat" title="Cat">cat</a></li>
+<li><a href="/wiki/Cd_(%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%B0)" title="Cd (команда)">cd</a></li>
+<li><a href="/w/index.php?title=Cflow&amp;action=edit&amp;redlink=1" class="new" title="Cflow (страница отсутствует)">cflow</a></li>
+<li><a href="/wiki/Chgrp" title="Chgrp">chgrp</a></li>
+<li><a href="/wiki/Chmod" title="Chmod">chmod</a></li>
+<li><a href="/wiki/Chown" title="Chown">chown</a></li>
+<li><a href="/wiki/Cksum" title="Cksum">cksum</a></li>
+<li><a href="/wiki/Cmp" title="Cmp">cmp</a></li>
+<li><a href="/wiki/Comm" title="Comm">comm</a></li>
+<li><a href="/w/index.php?title=Command_(Unix)&amp;action=edit&amp;redlink=1" class="new" title="Command (Unix) (страница отсутствует)">command</a></li>
+<li><a href="/w/index.php?title=Compress&amp;action=edit&amp;redlink=1" class="new" title="Compress (страница отсутствует)">compress</a></li>
+<li><a href="/wiki/Cp" title="Cp">cp</a></li>
+<li><a href="/wiki/Crontab" class="mw-redirect" title="Crontab">crontab</a></li>
+<li><a href="/wiki/Csplit" title="Csplit">csplit</a></li>
+<li><a href="/wiki/Ctags" title="Ctags">ctags</a></li>
+<li><a href="/wiki/Cut" title="Cut">cut</a></li>
+<li><a href="/w/index.php?title=Cxref&amp;action=edit&amp;redlink=1" class="new" title="Cxref (страница отсутствует)">cxref</a></li>
+<li><a href="/wiki/Date" title="Date">date</a></li>
+<li><a href="/wiki/Dd" title="Dd">dd</a></li>
+<li><a href="/w/index.php?title=Delta_(Unix)&amp;action=edit&amp;redlink=1" class="new" title="Delta (Unix) (страница отсутствует)">delta</a></li>
+<li><a href="/wiki/Df" title="Df">df</a></li>
+<li><a href="/wiki/Diff" title="Diff">diff</a></li>
+<li><a href="/wiki/Dirname" title="Dirname">dirname</a></li>
+<li><a href="/wiki/Du" title="Du">du</a></li>
+<li><a href="/wiki/Echo" title="Echo">echo</a></li>
+<li><a href="/wiki/Ed" title="Ed">ed</a></li>
+<li><a href="/wiki/Env" title="Env">env</a></li>
+<li><a href="/wiki/Ex_(Unix)" title="Ex (Unix)">ex</a></li>
+<li><a href="/wiki/Expand" title="Expand">expand</a></li>
+<li><a href="/wiki/Expr" title="Expr">expr</a></li>
+<li><a href="/wiki/False" title="False">false</a></li>
+<li><a href="/wiki/Fc_(Unix)" title="Fc (Unix)">fc</a></li>
+<li><a href="/wiki/Fg" title="Fg">fg</a></li>
+<li><a href="/wiki/File_(Unix)" title="File (Unix)">file</a></li>
+<li><a href="/wiki/Find" title="Find">find</a></li>
+<li><a href="/w/index.php?title=Fold&amp;action=edit&amp;redlink=1" class="new" title="Fold (страница отсутствует)">fold</a></li>
+<li><a href="/w/index.php?title=Fort77&amp;action=edit&amp;redlink=1" class="new" title="Fort77 (страница отсутствует)">fort77</a></li>
+<li><a href="/wiki/Fuser" title="Fuser">fuser</a></li>
+<li><a href="/w/index.php?title=Gencat&amp;action=edit&amp;redlink=1" class="new" title="Gencat (страница отсутствует)">gencat</a></li>
+<li><a href="/w/index.php?title=Get&amp;action=edit&amp;redlink=1" class="new" title="Get (страница отсутствует)">get</a></li>
+<li><a href="/w/index.php?title=Getconf&amp;action=edit&amp;redlink=1" class="new" title="Getconf (страница отсутствует)">getconf</a></li>
+<li><a href="/w/index.php?title=Getopts&amp;action=edit&amp;redlink=1" class="new" title="Getopts (страница отсутствует)">getopts</a></li>
+<li><a href="/wiki/Grep" title="Grep">grep</a></li>
+<li><a href="/wiki/Hash" class="mw-redirect" title="Hash">hash</a></li>
+<li><a href="/wiki/Head_(Unix)" title="Head (Unix)">head</a></li>
+<li><a href="/wiki/Iconv" title="Iconv">iconv</a></li>
+<li><a href="/wiki/Id" title="Id">id</a></li>
+<li><a href="/w/index.php?title=Ipcrm&amp;action=edit&amp;redlink=1" class="new" title="Ipcrm (страница отсутствует)">ipcrm</a></li>
+<li><a href="/w/index.php?title=Ipcs&amp;action=edit&amp;redlink=1" class="new" title="Ipcs (страница отсутствует)">ipcs</a></li>
+<li><a href="/w/index.php?title=Jobs&amp;action=edit&amp;redlink=1" class="new" title="Jobs (страница отсутствует)">jobs</a></li>
+<li><a href="/wiki/Join_(Unix)" title="Join (Unix)">join</a></li>
+<li><a href="/wiki/Kill" title="Kill">kill</a></li>
+<li><a href="/wiki/Lex" title="Lex">lex</a></li>
+<li><a href="/w/index.php?title=Link_(Unix)&amp;action=edit&amp;redlink=1" class="new" title="Link (Unix) (страница отсутствует)">link</a></li>
+<li><a href="/wiki/Ln_(UNIX)" class="mw-redirect" title="Ln (UNIX)">ln</a></li>
+<li><a href="/wiki/Locale" title="Locale">locale</a></li>
+<li><a href="/w/index.php?title=Localedef&amp;action=edit&amp;redlink=1" class="new" title="Localedef (страница отсутствует)">localedef</a></li>
+<li><a href="/wiki/Logger" title="Logger">logger</a></li>
+<li><a href="/wiki/Logname" title="Logname">logname</a></li>
+<li><a href="/wiki/Lp" title="Lp">lp</a></li>
+<li><a href="/wiki/Ls" title="Ls">ls</a></li>
+<li><a href="/wiki/%D0%9C%D0%B0%D0%BA%D1%80%D0%BE%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80_m4" class="mw-redirect" title="Макропроцессор m4">m4</a></li>
+<li><a href="/w/index.php?title=Mailx&amp;action=edit&amp;redlink=1" class="new" title="Mailx (страница отсутствует)">mailx</a></li>
+<li><a href="/wiki/Make" title="Make">make</a></li>
+<li><a href="/wiki/Man" title="Man">man</a></li>
+<li><a href="/wiki/Mesg" title="Mesg">mesg</a></li>
+<li><a href="/wiki/Mkdir" title="Mkdir">mkdir</a></li>
+<li><a href="/wiki/Mkfifo" class="mw-redirect" title="Mkfifo">mkfifo</a></li>
+<li><a href="/wiki/More" title="More">more</a></li>
+<li><a href="/wiki/Mv" title="Mv">mv</a></li>
+<li><a href="/w/index.php?title=Newgrp&amp;action=edit&amp;redlink=1" class="new" title="Newgrp (страница отсутствует)">newgrp</a></li>
+<li><a href="/wiki/Nice" title="Nice">nice</a></li>
+<li><a href="/wiki/Nl" title="Nl">nl</a></li>
+<li><a href="/wiki/Nm" title="Nm">nm</a></li>
+<li><a href="/wiki/Nohup" title="Nohup">nohup</a></li>
+<li><a href="/wiki/Od" title="Od">od</a></li>
+<li><a href="/wiki/Paste" title="Paste">paste</a></li>
+<li><a href="/wiki/Patch_(UNIX)" class="mw-redirect" title="Patch (UNIX)">patch</a></li>
+<li><a href="/w/index.php?title=Pathchk&amp;action=edit&amp;redlink=1" class="new" title="Pathchk (страница отсутствует)">pathchk</a></li>
+<li><a href="/wiki/Pax_(Unix)" title="Pax (Unix)">pax</a></li>
+<li><a href="/w/index.php?title=Pr_(Unix)&amp;action=edit&amp;redlink=1" class="new" title="Pr (Unix) (страница отсутствует)">pr</a></li>
+<li><a href="/wiki/Printf" title="Printf">printf</a></li>
+<li><a href="/w/index.php?title=Prs&amp;action=edit&amp;redlink=1" class="new" title="Prs (страница отсутствует)">prs</a></li>
+<li><a href="/wiki/Ps" title="Ps">ps</a></li>
+<li><a href="/wiki/Pwd" title="Pwd">pwd</a></li>
+<li><a href="/w/index.php?title=Qalter&amp;action=edit&amp;redlink=1" class="new" title="Qalter (страница отсутствует)">qalter</a></li>
+<li><a href="/w/index.php?title=Qdel&amp;action=edit&amp;redlink=1" class="new" title="Qdel (страница отсутствует)">qdel</a></li>
+<li><a href="/w/index.php?title=Qhold&amp;action=edit&amp;redlink=1" class="new" title="Qhold (страница отсутствует)">qhold</a></li>
+<li><a href="/w/index.php?title=Qmove&amp;action=edit&amp;redlink=1" class="new" title="Qmove (страница отсутствует)">qmove</a></li>
+<li><a href="/w/index.php?title=Qmsg&amp;action=edit&amp;redlink=1" class="new" title="Qmsg (страница отсутствует)">qmsg</a></li>
+<li><a href="/w/index.php?title=Qrerun&amp;action=edit&amp;redlink=1" class="new" title="Qrerun (страница отсутствует)">qrerun</a></li>
+<li><a href="/w/index.php?title=Qrls&amp;action=edit&amp;redlink=1" class="new" title="Qrls (страница отсутствует)">qrls</a></li>
+<li><a href="/w/index.php?title=Qselect&amp;action=edit&amp;redlink=1" class="new" title="Qselect (страница отсутствует)">qselect</a></li>
+<li><a href="/w/index.php?title=Qsig&amp;action=edit&amp;redlink=1" class="new" title="Qsig (страница отсутствует)">qsig</a></li>
+<li><a href="/w/index.php?title=Qstat&amp;action=edit&amp;redlink=1" class="new" title="Qstat (страница отсутствует)">qstat</a></li>
+<li><a href="/w/index.php?title=Qsub&amp;action=edit&amp;redlink=1" class="new" title="Qsub (страница отсутствует)">qsub</a></li>
+<li><a href="/w/index.php?title=Read_(UNIX)&amp;action=edit&amp;redlink=1" class="new" title="Read (UNIX) (страница отсутствует)">read</a></li>
+<li><a href="/wiki/Renice" title="Renice">renice</a></li>
+<li><a href="/wiki/Rm" title="Rm">rm</a></li>
+<li><a href="/w/index.php?title=Rmdel&amp;action=edit&amp;redlink=1" class="new" title="Rmdel (страница отсутствует)">rmdel</a></li>
+<li><a href="/wiki/Rmdir" title="Rmdir">rmdir</a></li>
+<li><a href="/w/index.php?title=Sact&amp;action=edit&amp;redlink=1" class="new" title="Sact (страница отсутствует)">sact</a></li>
+<li><a href="/wiki/Source_Code_Control_System" title="Source Code Control System">sccs</a></li>
+<li><a href="/wiki/Sed" title="Sed">sed</a></li>
+<li><a href="/wiki/Bash" title="Bash">sh</a></li>
+<li><a href="/wiki/Sleep" title="Sleep">sleep</a></li>
+<li><a href="/wiki/Sort" title="Sort">sort</a></li>
+<li><a href="/wiki/Split" title="Split">split</a></li>
+<li><a href="/wiki/Strings" title="Strings">strings</a></li>
+<li><a href="/w/index.php?title=Strip_(UNIX)&amp;action=edit&amp;redlink=1" class="new" title="Strip (UNIX) (страница отсутствует)">strip</a></li>
+<li><a href="/w/index.php?title=Stty&amp;action=edit&amp;redlink=1" class="new" title="Stty (страница отсутствует)">stty</a></li>
+<li><a href="/w/index.php?title=Tabs&amp;action=edit&amp;redlink=1" class="new" title="Tabs (страница отсутствует)">tabs</a></li>
+<li><a href="/wiki/Tail" title="Tail">tail</a></li>
+<li><a href="/w/index.php?title=Talk_(UNIX)&amp;action=edit&amp;redlink=1" class="new" title="Talk (UNIX) (страница отсутствует)">talk</a></li>
+<li><a href="/wiki/Tee" title="Tee">tee</a></li>
+<li><a href="/wiki/Test" title="Test">test</a></li>
+<li><a href="/wiki/Time_(Unix)" title="Time (Unix)">time</a></li>
+<li><a href="/wiki/Touch" title="Touch">touch</a></li>
+<li><a href="/w/index.php?title=Tput&amp;action=edit&amp;redlink=1" class="new" title="Tput (страница отсутствует)">tput</a></li>
+<li><a href="/wiki/Tr" title="Tr">tr</a></li>
+<li><a href="/wiki/True" title="True">true</a></li>
+<li><a href="/w/index.php?title=Tsort&amp;action=edit&amp;redlink=1" class="new" title="Tsort (страница отсутствует)">tsort</a></li>
+<li><a href="/wiki/Tty_(UNIX)" class="mw-redirect" title="Tty (UNIX)">tty</a></li>
+<li><a href="/wiki/Type" title="Type">type</a></li>
+<li><a href="/w/index.php?title=Ulimit&amp;action=edit&amp;redlink=1" class="new" title="Ulimit (страница отсутствует)">ulimit</a></li>
+<li><a href="/wiki/Umask" title="Umask">umask</a></li>
+<li><a href="/w/index.php?title=Unalias&amp;action=edit&amp;redlink=1" class="new" title="Unalias (страница отсутствует)">unalias</a></li>
+<li><a href="/wiki/Uname" title="Uname">uname</a></li>
+<li><a href="/w/index.php?title=Uncompress&amp;action=edit&amp;redlink=1" class="new" title="Uncompress (страница отсутствует)">uncompress</a></li>
+<li><a href="/wiki/Unexpand" title="Unexpand">unexpand</a></li>
+<li><a href="/w/index.php?title=Unget&amp;action=edit&amp;redlink=1" class="new" title="Unget (страница отсутствует)">unget</a></li>
+<li><a href="/wiki/Uniq" title="Uniq">uniq</a></li>
+<li><a href="/wiki/Unlink" title="Unlink">unlink</a></li>
+<li><a href="/wiki/Uucp" title="Uucp">uucp</a></li>
+<li><a href="/wiki/Uudecode" class="mw-redirect" title="Uudecode">uudecode</a></li>
+<li><a href="/wiki/Uuencode" class="mw-redirect" title="Uuencode">uuencode</a></li>
+<li><a href="/w/index.php?title=Uustat&amp;action=edit&amp;redlink=1" class="new" title="Uustat (страница отсутствует)">uustat</a></li>
+<li><a href="/w/index.php?title=Uux&amp;action=edit&amp;redlink=1" class="new" title="Uux (страница отсутствует)">uux</a></li>
+<li><a href="/w/index.php?title=Val&amp;action=edit&amp;redlink=1" class="new" title="Val (страница отсутствует)">val</a></li>
+<li><a href="/wiki/Vi" title="Vi">vi</a></li>
+<li><a href="/wiki/Wait_(%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%B0)" title="Wait (команда)">wait</a></li>
+<li><a href="/wiki/Wc" title="Wc">wc</a></li>
+<li><a href="/w/index.php?title=What&amp;action=edit&amp;redlink=1" class="new" title="What (страница отсутствует)">what</a></li>
+<li><a href="/wiki/Who" title="Who">who</a></li>
+<li><a href="/wiki/Write" title="Write">write</a></li>
+<li><a href="/wiki/Xargs" title="Xargs">xargs</a></li>
+<li><a href="/wiki/Yacc" title="Yacc">yacc</a></li>
+<li><a href="/w/index.php?title=Zcat&amp;action=edit&amp;redlink=1" class="new" title="Zcat (страница отсутствует)">zcat</a></li></ul>
+</div></td></tr></tbody></table><div></div></td></tr><tr><td class="navbox-list navbox-odd" style="width:100%;padding:0px"><div style="padding:0em 0.25em"></div><table class="nowraplinks collapsible uncollapsed navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><span style="float:left;text-align:left;width:5em;margin-right:0.5em"><a href="/wiki/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD:GNU_Coreutils" title="Просмотр этого шаблона"><img alt="⛭" src="//upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Wikipedia_interwiki_section_gear_icon.svg/14px-Wikipedia_interwiki_section_gear_icon.svg.png" decoding="async" width="14" height="14" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Wikipedia_interwiki_section_gear_icon.svg/21px-Wikipedia_interwiki_section_gear_icon.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Wikipedia_interwiki_section_gear_icon.svg/28px-Wikipedia_interwiki_section_gear_icon.svg.png 2x" data-file-width="14" data-file-height="14" /></a></span><div id="GNU_Coreutils" style="font-size:114%;margin:0 5em"><a href="/wiki/GNU_Coreutils" title="GNU Coreutils">GNU Coreutils</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1px">Файловые утилиты</th><td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Chgrp" title="Chgrp">chgrp</a></li>
+<li><a href="/wiki/Chown" title="Chown">chown</a></li>
+<li><a href="/wiki/Chmod" title="Chmod">chmod</a></li>
+<li><a href="/wiki/Cp" title="Cp">cp</a></li>
+<li><a href="/wiki/Dd" title="Dd">dd</a></li>
+<li><a href="/wiki/Df" title="Df">df</a></li>
+<li><a href="/wiki/Ls" title="Ls">dir</a></li>
+<li><a href="/w/index.php?title=Dircolors&amp;action=edit&amp;redlink=1" class="new" title="Dircolors (страница отсутствует)">dircolors</a></li>
+<li><a href="/w/index.php?title=Install&amp;action=edit&amp;redlink=1" class="new" title="Install (страница отсутствует)">install</a></li>
+<li><a href="/wiki/Ln_(UNIX)" class="mw-redirect" title="Ln (UNIX)">ln</a></li>
+<li><a href="/wiki/Ls" title="Ls">ls</a></li>
+<li><a href="/wiki/Mkdir" title="Mkdir">mkdir</a></li>
+<li><a href="/wiki/Mkfifo" class="mw-redirect" title="Mkfifo">mkfifo</a></li>
+<li><a href="/w/index.php?title=Mknod&amp;action=edit&amp;redlink=1" class="new" title="Mknod (страница отсутствует)">mknod</a></li>
+<li><a href="/wiki/Mv" title="Mv">mv</a></li>
+<li><a href="/wiki/Rm" title="Rm">rm</a></li>
+<li><a href="/wiki/Rmdir" title="Rmdir">rmdir</a></li>
+<li><a href="/wiki/Shred" title="Shred">shred</a></li>
+<li><a href="/wiki/Sync" title="Sync">sync</a></li>
+<li><a href="/wiki/Touch" title="Touch">touch</a></li>
+<li><a href="/wiki/Vdir" title="Vdir">vdir</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1px">Текстовые утилиты</th><td class="navbox-list navbox-even hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Cat" title="Cat">cat</a></li>
+<li><a href="/wiki/Cksum" title="Cksum">cksum</a></li>
+<li><a href="/wiki/Comm" title="Comm">comm</a></li>
+<li><a href="/wiki/Csplit" title="Csplit">csplit</a></li>
+<li><a href="/wiki/Cut" title="Cut">cut</a></li>
+<li><a href="/wiki/Expand" title="Expand">expand</a></li>
+<li><a href="/wiki/Fmt" title="Fmt">fmt</a></li>
+<li><a href="/w/index.php?title=Fold&amp;action=edit&amp;redlink=1" class="new" title="Fold (страница отсутствует)">fold</a></li>
+<li><a href="/w/index.php?title=Head_(UNIX)&amp;action=edit&amp;redlink=1" class="new" title="Head (UNIX) (страница отсутствует)">head</a></li>
+<li><a href="/w/index.php?title=Join_(UNIX)&amp;action=edit&amp;redlink=1" class="new" title="Join (UNIX) (страница отсутствует)">join</a></li>
+<li><a href="/wiki/Md5sum" title="Md5sum">md5sum</a></li>
+<li><a href="/wiki/Nl" title="Nl">nl</a></li>
+<li><a href="/wiki/Od" title="Od">od</a></li>
+<li><a href="/wiki/Paste" title="Paste">paste</a></li>
+<li><a href="/w/index.php?title=Ptx&amp;action=edit&amp;redlink=1" class="new" title="Ptx (страница отсутствует)">ptx</a></li>
+<li><a href="/w/index.php?title=Pr_(UNIX)&amp;action=edit&amp;redlink=1" class="new" title="Pr (UNIX) (страница отсутствует)">pr</a></li>
+<li><a href="/wiki/Sha1sum" title="Sha1sum">sha1sum</a></li>
+<li><a href="/wiki/Sort" title="Sort">sort</a></li>
+<li><a href="/wiki/Split" title="Split">split</a></li>
+<li><a href="/w/index.php?title=Sum_(UNIX)&amp;action=edit&amp;redlink=1" class="new" title="Sum (UNIX) (страница отсутствует)">sum</a></li>
+<li><a href="/w/index.php?title=Tac&amp;action=edit&amp;redlink=1" class="new" title="Tac (страница отсутствует)">tac</a></li>
+<li><a href="/wiki/Tail" title="Tail">tail</a></li>
+<li><a href="/wiki/Tr" title="Tr">tr</a></li>
+<li><a href="/w/index.php?title=Tsort&amp;action=edit&amp;redlink=1" class="new" title="Tsort (страница отсутствует)">tsort</a></li>
+<li><a href="/wiki/Unexpand" title="Unexpand">unexpand</a></li>
+<li><a href="/wiki/Uniq" title="Uniq">uniq</a></li>
+<li><a href="/wiki/Wc" title="Wc">wc</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1px">Shell-утилиты</th><td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Basename" title="Basename">basename</a></li>
+<li><a href="/wiki/Chroot" title="Chroot">chroot</a></li>
+<li><a href="/wiki/Date" title="Date">date</a></li>
+<li><a href="/wiki/Dirname" title="Dirname">dirname</a></li>
+<li><a href="/wiki/Du" title="Du">du</a></li>
+<li><a href="/wiki/Echo" title="Echo">echo</a></li>
+<li><a href="/wiki/Env" title="Env">env</a></li>
+<li><a href="/wiki/Expr" title="Expr">expr</a></li>
+<li><a href="/w/index.php?title=Factor_(Unix)&amp;action=edit&amp;redlink=1" class="new" title="Factor (Unix) (страница отсутствует)">factor</a></li>
+<li><a href="/wiki/False" title="False">false</a></li>
+<li><a href="/w/index.php?title=Groups&amp;action=edit&amp;redlink=1" class="new" title="Groups (страница отсутствует)">groups</a></li>
+<li><a href="/w/index.php?title=Hostid&amp;action=edit&amp;redlink=1" class="new" title="Hostid (страница отсутствует)">hostid</a></li>
+<li><a href="/wiki/Id" title="Id">id</a></li>
+<li><a href="/w/index.php?title=Link_(Unix)&amp;action=edit&amp;redlink=1" class="new" title="Link (Unix) (страница отсутствует)">link</a></li>
+<li><a href="/wiki/Logname" title="Logname">logname</a></li>
+<li><a href="/wiki/Nice" title="Nice">nice</a></li>
+<li><a href="/wiki/Nohup" title="Nohup">nohup</a></li>
+<li><a href="/w/index.php?title=Pathchk&amp;action=edit&amp;redlink=1" class="new" title="Pathchk (страница отсутствует)">pathchk</a></li>
+<li><a href="/w/index.php?title=Pinky&amp;action=edit&amp;redlink=1" class="new" title="Pinky (страница отсутствует)">pinky</a></li>
+<li><a href="/w/index.php?title=Printenv&amp;action=edit&amp;redlink=1" class="new" title="Printenv (страница отсутствует)">printenv</a></li>
+<li><a href="/wiki/Printf" title="Printf">printf</a></li>
+<li><a href="/wiki/Pwd" title="Pwd">pwd</a></li>
+<li><a href="/w/index.php?title=Readlink&amp;action=edit&amp;redlink=1" class="new" title="Readlink (страница отсутствует)">readlink</a></li>
+<li><a href="/w/index.php?title=Seq&amp;action=edit&amp;redlink=1" class="new" title="Seq (страница отсутствует)">seq</a></li>
+<li><a href="/wiki/Sleep" title="Sleep">sleep</a></li>
+<li><a href="/w/index.php?title=Stat&amp;action=edit&amp;redlink=1" class="new" title="Stat (страница отсутствует)">stat</a></li>
+<li><a href="/w/index.php?title=Stty&amp;action=edit&amp;redlink=1" class="new" title="Stty (страница отсутствует)">stty</a></li>
+<li><a href="/wiki/Tee" title="Tee">tee</a></li>
+<li><a href="/wiki/Test" title="Test">test</a></li>
+<li><a href="/wiki/True" title="True">true</a></li>
+<li><a href="/wiki/Tty_(UNIX)" class="mw-redirect" title="Tty (UNIX)">tty</a></li>
+<li><a href="/wiki/Uname" title="Uname">uname</a></li>
+<li><a href="/wiki/Unlink" title="Unlink">unlink</a></li>
+<li><a href="/wiki/Users" title="Users">users</a></li>
+<li><a href="/wiki/Who" title="Who">who</a></li>
+<li><a href="/wiki/Whoami" title="Whoami">whoami</a></li>
+<li><a href="/wiki/Yes_(Unix)" title="Yes (Unix)">yes</a></li></ul>
+</div></td></tr></tbody></table><div></div></td></tr></tbody></table></div>
+<div role="navigation" class="navbox" aria-labelledby="Языки_программирования" style="padding:3px"><table class="nowraplinks hlist collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><span style="float:left;text-align:left;width:5em;margin-right:0.5em"><a href="/wiki/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD:%D0%AF%D0%B7%D1%8B%D0%BA%D0%B8_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F" title="Просмотр этого шаблона"><img alt="⛭" src="//upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Wikipedia_interwiki_section_gear_icon.svg/14px-Wikipedia_interwiki_section_gear_icon.svg.png" decoding="async" width="14" height="14" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Wikipedia_interwiki_section_gear_icon.svg/21px-Wikipedia_interwiki_section_gear_icon.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Wikipedia_interwiki_section_gear_icon.svg/28px-Wikipedia_interwiki_section_gear_icon.svg.png 2x" data-file-width="14" data-file-height="14" /></a></span><div id="Языки_программирования" style="font-size:114%;margin:0 5em"><a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F" title="Язык программирования">Языки программирования</a></div></th></tr><tr><td class="navbox-abovebelow" colspan="2"><div><a href="/wiki/%D0%A5%D1%80%D0%BE%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F_%D1%8F%D0%B7%D1%8B%D0%BA%D0%BE%D0%B2_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F" title="Хронология языков программирования">Хронология</a></div></td></tr><tr><td class="navbox-list navbox-odd" style="width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/%D0%90%D0%B4%D0%B0_(%D1%8F%D0%B7%D1%8B%D0%BA_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)" title="Ада (язык программирования)">Ада</a></li>
+<li><a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%B0%D1%81%D1%81%D0%B5%D0%BC%D0%B1%D0%BB%D0%B5%D1%80%D0%B0" title="Язык ассемблера">Ассемблер</a></li>
+<li><a href="/wiki/APL_(%D1%8F%D0%B7%D1%8B%D0%BA_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)" title="APL (язык программирования)">APL</a></li>
+<li><a href="/wiki/%D0%91%D0%B5%D0%B9%D1%81%D0%B8%D0%BA" title="Бейсик">BASIC</a></li>
+<li><a href="/wiki/%D0%A1%D0%B8_(%D1%8F%D0%B7%D1%8B%D0%BA_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)" title="Си (язык программирования)">C</a></li>
+<li><a href="/wiki/C%2B%2B" title="C++">C++</a></li>
+<li><a href="/wiki/C_Sharp" title="C Sharp">C#</a></li>
+<li><a href="/wiki/D_(%D1%8F%D0%B7%D1%8B%D0%BA_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)" title="D (язык программирования)">D</a></li>
+<li><a href="/wiki/Delphi_(%D1%8F%D0%B7%D1%8B%D0%BA_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)" title="Delphi (язык программирования)">Delphi</a></li>
+<li><a href="/wiki/%D0%9A%D0%BE%D0%B1%D0%BE%D0%BB" title="Кобол">COBOL</a></li>
+<li><a href="/wiki/Erlang" title="Erlang">Erlang</a></li>
+<li><a href="/wiki/F_Sharp" title="F Sharp">F#</a></li>
+<li><a href="/wiki/%D0%A4%D0%BE%D1%80%D1%82%D1%80%D0%B0%D0%BD" title="Фортран">Fortran</a></li>
+<li><a href="/wiki/Go" title="Go">Go</a></li>
+<li><a href="/wiki/Groovy" title="Groovy">Groovy</a></li>
+<li><a href="/wiki/Haskell" title="Haskell">Haskell</a></li>
+<li><a href="/wiki/Java" title="Java">Java</a></li>
+<li><a href="/wiki/JavaScript" title="JavaScript">JavaScript</a> (JS)</li>
+<li><a href="/wiki/Julia_(%D1%8F%D0%B7%D1%8B%D0%BA_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)" title="Julia (язык программирования)">Julia</a></li>
+<li><a href="/wiki/Kotlin" title="Kotlin">Kotlin</a></li>
+<li><a href="/wiki/%D0%9B%D0%B8%D1%81%D0%BF" title="Лисп">Lisp</a></li>
+<li><a href="/wiki/Lua" title="Lua">Lua</a></li>
+<li><a href="/wiki/MATLAB" title="MATLAB">MATLAB</a></li>
+<li><a href="/wiki/Objective-C" title="Objective-C">Objective-C</a></li>
+<li><a href="/wiki/OCaml" title="OCaml">OCaml</a></li>
+<li><a href="/wiki/%D0%9F%D0%B0%D1%81%D0%BA%D0%B0%D0%BB%D1%8C_(%D1%8F%D0%B7%D1%8B%D0%BA_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)" title="Паскаль (язык программирования)">Pascal</a></li>
+<li><a href="/wiki/Perl" title="Perl">Perl</a></li>
+<li><a href="/wiki/PL/SQL" title="PL/SQL">PL/SQL</a></li>
+<li><a href="/wiki/PHP" title="PHP">PHP</a></li>
+<li><a href="/wiki/PowerShell" title="PowerShell">PowerShell</a></li>
+<li><a href="/wiki/Python" title="Python">Python</a></li>
+<li><a href="/wiki/Ruby" title="Ruby">Ruby</a></li>
+<li><a href="/wiki/Rust_(%D1%8F%D0%B7%D1%8B%D0%BA_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)" title="Rust (язык программирования)">Rust</a></li>
+<li><a href="/wiki/Scala_(%D1%8F%D0%B7%D1%8B%D0%BA_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)" title="Scala (язык программирования)">Scala</a></li>
+<li><a href="/wiki/%D0%9A%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%BD%D0%B0%D1%8F_%D0%BE%D0%B1%D0%BE%D0%BB%D0%BE%D1%87%D0%BA%D0%B0_Unix" title="Командная оболочка Unix">UNIX Shell</a></li>
+<li><a href="/wiki/Smalltalk" title="Smalltalk">Smalltalk</a></li>
+<li><a href="/wiki/Swift_(%D1%8F%D0%B7%D1%8B%D0%BA_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)" title="Swift (язык программирования)">Swift</a></li>
+<li><a href="/wiki/TypeScript" title="TypeScript">TypeScript</a></li>
+<li><a href="/wiki/Vala" title="Vala">Vala</a></li>
+<li><a href="/wiki/Visual_Basic_.NET" title="Visual Basic .NET">Visual Basic .NET</a> (VB.NET)</li></ul>
+</div></td></tr><tr><td class="navbox-abovebelow" colspan="2"><div>
+<ul><li><a href="/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Folder_Hexagonal_Icon.svg" class="image" title="Категория"><img alt="Категория" src="//upload.wikimedia.org/wikipedia/commons/thumb/4/48/Folder_Hexagonal_Icon.svg/16px-Folder_Hexagonal_Icon.svg.png" decoding="async" width="16" height="14" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/4/48/Folder_Hexagonal_Icon.svg/24px-Folder_Hexagonal_Icon.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/4/48/Folder_Hexagonal_Icon.svg/32px-Folder_Hexagonal_Icon.svg.png 2x" data-file-width="36" data-file-height="31" /></a> <a href="/wiki/%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:%D0%AF%D0%B7%D1%8B%D0%BA%D0%B8_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F" title="Категория:Языки программирования">Категория</a></li>
+<li><a href="/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Symbol_neutral_vote.svg" class="image" title="Non-article page"><img alt="Non-article page" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/89/Symbol_neutral_vote.svg/16px-Symbol_neutral_vote.svg.png" decoding="async" width="16" height="16" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/8/89/Symbol_neutral_vote.svg/24px-Symbol_neutral_vote.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/8/89/Symbol_neutral_vote.svg/32px-Symbol_neutral_vote.svg.png 2x" data-file-width="180" data-file-height="185" /></a> <a href="/wiki/%D0%A1%D1%80%D0%B0%D0%B2%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5_%D1%8F%D0%B7%D1%8B%D0%BA%D0%BE%D0%B2_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F" title="Сравнение языков программирования">Сравнение</a></li>
+<li><a href="/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Symbol_list_class.svg" class="image" title="Список"><img alt="Список" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/db/Symbol_list_class.svg/16px-Symbol_list_class.svg.png" decoding="async" width="16" height="16" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/db/Symbol_list_class.svg/24px-Symbol_list_class.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/db/Symbol_list_class.svg/32px-Symbol_list_class.svg.png 2x" data-file-width="180" data-file-height="185" /></a> Списки: <a href="/wiki/%D0%A5%D1%80%D0%BE%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F_%D1%8F%D0%B7%D1%8B%D0%BA%D0%BE%D0%B2_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F" title="Хронология языков программирования">хронологический</a></li>
+<li><a href="/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D1%8F%D0%B7%D1%8B%D0%BA%D0%BE%D0%B2_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F_%D0%BF%D0%BE_%D0%BA%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F%D0%BC" title="Список языков программирования по категориям">по категориям</a></li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw1314
+Cached time: 20200304005301
+Cache expiry: 86400
+Dynamic content: true
+Complications: []
+CPU time usage: 0.368 seconds
+Real time usage: 0.516 seconds
+Preprocessor visited node count: 1363/1000000
+Post‐expand include size: 87202/2097152 bytes
+Template argument size: 8529/2097152 bytes
+Highest expansion depth: 25/40
+Expensive parser function count: 11/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+Number of Wikibase entities loaded: 13/400
+Lua time usage: 0.201/10.000 seconds
+Lua memory usage: 3.98 MB/50 MB
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  425.659      1 -total
+ 77.54%  330.044      1 Шаблон:Карточка_языка_программирования
+ 72.71%  309.483      1 Шаблон:Карточка
+ 48.92%  208.213      6 Шаблон:Wikidata
+ 20.66%   87.938      2 Шаблон:Удалить_теги
+ 14.85%   63.214      4 Шаблон:Навигационная_таблица
+  9.91%   42.189      1 Шаблон:Команды_Unix
+  4.81%   20.489      1 Шаблон:Нп5
+  3.92%   16.693      4 Шаблон:Ref-ru
+  3.47%   14.776      1 Шаблон:POSIX.1-2008
+-->
+
+<!-- Saved in parser cache with key ruwiki:pcache:idhash:15561-0!canonical and timestamp 20200304005301 and revision id 94352681
+ -->
+</div><noscript><img src="//ru.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>
+		<div class="printfooter">Источник — <a dir="ltr" href="https://ru.wikipedia.org/w/index.php?title=AWK&amp;oldid=94352681">https://ru.wikipedia.org/w/index.php?title=AWK&amp;oldid=94352681</a></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D0%B8" title="Служебная:Категории">Категории</a>: <ul><li><a href="/wiki/%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:%D0%AF%D0%B7%D1%8B%D0%BA%D0%B8_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F_%D0%BF%D0%BE_%D0%B0%D0%BB%D1%84%D0%B0%D0%B2%D0%B8%D1%82%D1%83" title="Категория:Языки программирования по алфавиту">Языки программирования по алфавиту</a></li><li><a href="/wiki/%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:%D0%AF%D0%B7%D1%8B%D0%BA%D0%B8_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F,_%D0%BF%D0%BE%D1%8F%D0%B2%D0%B8%D0%B2%D1%88%D0%B8%D0%B5%D1%81%D1%8F_%D0%B2_1977_%D0%B3%D0%BE%D0%B4%D1%83" title="Категория:Языки программирования, появившиеся в 1977 году">Языки программирования, появившиеся в 1977 году</a></li><li><a href="/wiki/%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:%D0%A3%D1%82%D0%B8%D0%BB%D0%B8%D1%82%D1%8B_Unix" title="Категория:Утилиты Unix">Утилиты Unix</a></li><li><a href="/wiki/%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:%D0%98%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%8B_Unix_%D0%B4%D0%BB%D1%8F_%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8_%D1%82%D0%B5%D0%BA%D1%81%D1%82%D0%B0" title="Категория:Инструменты Unix для обработки текста">Инструменты Unix для обработки текста</a></li><li><a href="/wiki/%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:%D0%9F%D1%80%D0%B5%D0%B4%D0%BC%D0%B5%D1%82%D0%BD%D0%BE-%D0%BE%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5_%D1%8F%D0%B7%D1%8B%D0%BA%D0%B8_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F" title="Категория:Предметно-ориентированные языки программирования">Предметно-ориентированные языки программирования</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Скрытые категории: <ul><li><a href="/wiki/%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%A1%D1%82%D0%B0%D1%82%D1%8C%D0%B8_%D1%81_%D0%BF%D0%B5%D1%80%D0%B5%D0%BE%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC_%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B8%D0%B7_%D0%92%D0%B8%D0%BA%D0%B8%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85" title="Категория:Википедия:Статьи с переопределением значения из Викиданных">Википедия:Статьи с переопределением значения из Викиданных</a></li><li><a href="/wiki/%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:%D0%9F%D0%A0%D0%9E:%D0%98%D0%A2:%D0%A1%D1%82%D0%B0%D1%82%D1%8C%D0%B8_%D0%BF%D0%BE_%D0%B0%D0%BB%D1%84%D0%B0%D0%B2%D0%B8%D1%82%D1%83" title="Категория:ПРО:ИТ:Статьи по алфавиту">ПРО:ИТ:Статьи по алфавиту</a></li><li><a href="/wiki/%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:%D0%9F%D0%A0%D0%9E:%D0%98%D0%A2:%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D0%BD%D1%8F%D1%8F_%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B0:_%D0%B2_%D0%BF%D0%BE%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%88%D0%BB%D0%BE%D0%BC_%D0%B3%D0%BE%D0%B4%D1%83" title="Категория:ПРО:ИТ:Последняя правка: в позапрошлом году">ПРО:ИТ:Последняя правка: в позапрошлом году</a></li></ul></div></div>
+		<div class="visualClear"></div>
+		
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+    <h2>Навигация</h2>
+    <div id="mw-head">
+        
+<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+	<h3 id="p-personal-label">Персональные инструменты</h3>
+	<ul >
+		
+		<li id="pt-anonuserpage">Вы не представились системе</li>
+		<li id="pt-anontalk"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:%D0%9C%D0%BE%D1%91_%D0%BE%D0%B1%D1%81%D1%83%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5" title="Страница обсуждений для моего IP [n]" accesskey="n">Обсуждение</a></li><li id="pt-anoncontribs"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:%D0%9C%D0%BE%D0%B9_%D0%B2%D0%BA%D0%BB%D0%B0%D0%B4" title="Список правок, сделанных с этого IP-адреса [y]" accesskey="y">Вклад</a></li><li id="pt-createaccount"><a href="/w/index.php?title=%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D1%82%D1%8C_%D1%83%D1%87%D1%91%D1%82%D0%BD%D1%83%D1%8E_%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D1%8C&amp;returnto=AWK" title="Мы предлагаем вам создать учётную запись и войти в систему, хотя это и не обязательно.">Создать учётную запись</a></li><li id="pt-login"><a href="/w/index.php?title=%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:%D0%92%D1%85%D0%BE%D0%B4&amp;returnto=AWK" title="Здесь можно зарегистрироваться в системе, но это необязательно. [o]" accesskey="o">Войти</a></li>
+	</ul>
+</div>
+
+        <div id="left-navigation">
+            <div id="p-namespaces" role="navigation" class="vectorTabs " aria-labelledby="p-namespaces-label">
+	<h3 id="p-namespaces-label">Пространства имён</h3>
+	<ul >
+		<li id="ca-nstab-main" class="selected"><a href="/wiki/AWK" title="Просмотр основной страницы [c]" accesskey="c">Статья</a></li><li id="ca-talk"><a href="/wiki/%D0%9E%D0%B1%D1%81%D1%83%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5:AWK" rel="discussion" title="Обсуждение основной страницы [t]" accesskey="t">Обсуждение</a></li>
+	</ul>
+</div>
+<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Варианты</span>
+	</h3>
+	<ul class="menu" >
+		
+	</ul>
+</div>
+
+        </div>
+        <div id="right-navigation">
+            <div id="p-views" role="navigation" class="vectorTabs " aria-labelledby="p-views-label">
+	<h3 id="p-views-label">Просмотры</h3>
+	<ul >
+		<li id="ca-view" class="collapsible selected"><a href="/wiki/AWK">Читать</a></li><li id="ca-ve-edit" class="collapsible"><a href="/w/index.php?title=AWK&amp;veaction=edit" title="Редактировать данную страницу [v]" accesskey="v">Править</a></li><li id="ca-edit" class="collapsible"><a href="/w/index.php?title=AWK&amp;action=edit" title="Эту статью можно изменять. Перед сохранением изменений, пожалуйста, нажмите кнопку предварительного просмотра для визуальной проверки результата [e]" accesskey="e">Править код</a></li><li id="ca-history" class="collapsible"><a href="/w/index.php?title=AWK&amp;action=history" title="Журнал изменений страницы [h]" accesskey="h">История</a></li>
+	</ul>
+</div>
+<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>Ещё</span>
+	</h3>
+	<ul class="menu" >
+		
+	</ul>
+</div>
+<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Поиск</label>
+	</h3>
+	<form action="/w/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Искать в Википедии" title="Искать в Википедии [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" value="Служебная:Поиск" name="title"/>
+			<input type="submit" name="fulltext" value="Найти" title="Найти страницы, содержащие указанный текст" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Перейти" title="Перейти к странице, имеющей в точности такое название" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+        </div>
+    </div>
+    <div id="mw-panel">
+        <div id="p-logo" role="banner">
+            <a  title="Перейти на заглавную страницу" class="mw-wiki-logo" href="/wiki/%D0%97%D0%B0%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0"></a>
+        </div>
+        
+<div class="portal" role="navigation" id="p-navigation"  aria-labelledby="p-navigation-label">
+	<h3  id="p-navigation-label">
+		Навигация
+	</h3>
+	<div class="body">
+		<ul><li id="n-mainpage-description"><a href="/wiki/%D0%97%D0%B0%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0" title="Перейти на заглавную страницу [z]" accesskey="z">Заглавная страница</a></li><li id="n-browse"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%9F%D0%BE%D0%B8%D1%81%D0%BA_%D0%BF%D0%BE_%D0%BA%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F%D0%BC" title="Поиск по категориям">Рубрикация</a></li><li id="n-index"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%90%D0%BB%D1%84%D0%B0%D0%B2%D0%B8%D1%82%D0%BD%D1%8B%D0%B9_%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C" title="Поиск по двум первым буквам">Указатель А — Я</a></li><li id="n-featured"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%98%D0%B7%D0%B1%D1%80%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5_%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8" title="Статьи, считающиеся лучшими статьями проекта">Избранные статьи</a></li><li id="n-randompage"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:%D0%A1%D0%BB%D1%83%D1%87%D0%B0%D0%B9%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0" title="Посмотреть случайно выбранную страницу [x]" accesskey="x">Случайная статья</a></li><li id="n-currentevents"><a href="/wiki/%D0%9F%D0%BE%D1%80%D1%82%D0%B0%D0%BB:%D0%A2%D0%B5%D0%BA%D1%83%D1%89%D0%B8%D0%B5_%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D1%8F" title="Статьи о текущих событиях в мире">Текущие события</a></li></ul>
+		
+	</div>
+</div>
+
+<div class="portal" role="navigation" id="p-participation"  aria-labelledby="p-participation-label">
+	<h3  id="p-participation-label">
+		Участие
+	</h3>
+	<div class="body">
+		<ul><li id="n-bug_in_article"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%A1%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D0%BD%D0%B8%D1%8F_%D0%BE%D0%B1_%D0%BE%D1%88%D0%B8%D0%B1%D0%BA%D0%B0%D1%85" title="Сообщить об ошибке в этой статье">Сообщить об ошибке</a></li><li id="n-portal"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%A1%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D1%81%D1%82%D0%B2%D0%BE" title="О проекте, о том, чем здесь можно заниматься, а также — где что находится">Сообщество</a></li><li id="n-forum"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%A4%D0%BE%D1%80%D1%83%D0%BC" title="Форум участников Википедии">Форум</a></li><li id="n-recentchanges"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:%D0%A1%D0%B2%D0%B5%D0%B6%D0%B8%D0%B5_%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B8" title="Список последних изменений [r]" accesskey="r">Свежие правки</a></li><li id="n-newpages"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:%D0%9D%D0%BE%D0%B2%D1%8B%D0%B5_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D1%8B" title="Список недавно созданных страниц">Новые страницы</a></li><li id="n-help"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%A1%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B0" title="Место, где можно получить справку">Справка</a></li><li id="n-sitesupport"><a href="//donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_ru.wikipedia.org&amp;uselang=ru" title="Поддержите нас">Пожертвовать</a></li></ul>
+		
+	</div>
+</div>
+
+<div class="portal" role="navigation" id="p-tb"  aria-labelledby="p-tb-label">
+	<h3  id="p-tb-label">
+		Инструменты
+	</h3>
+	<div class="body">
+		<ul><li id="t-whatlinkshere"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B8_%D1%81%D1%8E%D0%B4%D0%B0/AWK" title="Список всех страниц, ссылающихся на данную [j]" accesskey="j">Ссылки сюда</a></li><li id="t-recentchangeslinked"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:%D0%A1%D0%B2%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5_%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B8/AWK" rel="nofollow" title="Последние изменения в страницах, на которые ссылается эта страница [k]" accesskey="k">Связанные правки</a></li><li id="t-specialpages"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:%D0%A1%D0%BF%D0%B5%D1%86%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D1%8B" title="Список служебных страниц [q]" accesskey="q">Служебные страницы</a></li><li id="t-permalink"><a href="/w/index.php?title=AWK&amp;oldid=94352681" title="Постоянная ссылка на эту версию страницы">Постоянная ссылка</a></li><li id="t-info"><a href="/w/index.php?title=AWK&amp;action=info" title="Подробнее об этой странице">Сведения о странице</a></li><li id="t-wikibase"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q213970" title="Ссылка на связанный элемент репозитория данных [g]" accesskey="g">Элемент Викиданных</a></li><li id="t-cite"><a href="/w/index.php?title=%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:%D0%A6%D0%B8%D1%82%D0%B0%D1%82%D0%B0&amp;page=AWK&amp;id=94352681" title="Информация о том, как цитировать эту страницу">Цитировать страницу</a></li></ul>
+		
+	</div>
+</div>
+
+<div class="portal" role="navigation" id="p-wikibase-otherprojects"  aria-labelledby="p-wikibase-otherprojects-label">
+	<h3  id="p-wikibase-otherprojects-label">
+		В других проектах
+	</h3>
+	<div class="body">
+		<ul><li class="wb-otherproject-link wb-otherproject-commons"><a href="https://commons.wikimedia.org/wiki/Category:AWK" hreflang="en">Викисклад</a></li></ul>
+		
+	</div>
+</div>
+
+<div class="portal" role="navigation" id="p-coll-print_export"  aria-labelledby="p-coll-print_export-label">
+	<h3  id="p-coll-print_export-label">
+		Печать/экспорт
+	</h3>
+	<div class="body">
+		<ul><li id="coll-create_a_book"><a href="/w/index.php?title=%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:%D0%9A%D0%BE%D0%BB%D0%BB%D0%B5%D0%BA%D1%86%D0%B8%D1%8F_%D0%BA%D0%BD%D0%B8%D0%B3&amp;bookcmd=book_creator&amp;referer=AWK">Создать книгу</a></li><li id="coll-download-as-rl"><a href="/w/index.php?title=%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:ElectronPdf&amp;page=AWK&amp;action=show-download-screen">Скачать как PDF</a></li><li id="t-print"><a href="/w/index.php?title=AWK&amp;printable=yes" title="Версия этой страницы для печати [p]" accesskey="p">Версия для печати</a></li></ul>
+		
+	</div>
+</div>
+
+<div class="portal" role="navigation" id="p-lang"  aria-labelledby="p-lang-label">
+	<h3  id="p-lang-label">
+		На других языках
+	</h3>
+	<div class="body">
+		<ul><li class="interlanguage-link interwiki-an"><a href="https://an.wikipedia.org/wiki/AWK" title="AWK — арагонский" lang="an" hreflang="an" class="interlanguage-link-target">Aragonés</a></li><li class="interlanguage-link interwiki-ar"><a href="https://ar.wikipedia.org/wiki/%D8%A3%D9%88%D9%83" title="أوك — арабский" lang="ar" hreflang="ar" class="interlanguage-link-target">العربية</a></li><li class="interlanguage-link interwiki-ast"><a href="https://ast.wikipedia.org/wiki/AWK" title="AWK — астурийский" lang="ast" hreflang="ast" class="interlanguage-link-target">Asturianu</a></li><li class="interlanguage-link interwiki-bg"><a href="https://bg.wikipedia.org/wiki/AWK" title="AWK — болгарский" lang="bg" hreflang="bg" class="interlanguage-link-target">Български</a></li><li class="interlanguage-link interwiki-bs"><a href="https://bs.wikipedia.org/wiki/Awk" title="Awk — боснийский" lang="bs" hreflang="bs" class="interlanguage-link-target">Bosanski</a></li><li class="interlanguage-link interwiki-ca"><a href="https://ca.wikipedia.org/wiki/Awk" title="Awk — каталанский" lang="ca" hreflang="ca" class="interlanguage-link-target">Català</a></li><li class="interlanguage-link interwiki-cs"><a href="https://cs.wikipedia.org/wiki/AWK" title="AWK — чешский" lang="cs" hreflang="cs" class="interlanguage-link-target">Čeština</a></li><li class="interlanguage-link interwiki-da"><a href="https://da.wikipedia.org/wiki/AWK_(programmeringssprog)" title="AWK (programmeringssprog) — датский" lang="da" hreflang="da" class="interlanguage-link-target">Dansk</a></li><li class="interlanguage-link interwiki-de"><a href="https://de.wikipedia.org/wiki/Awk" title="Awk — немецкий" lang="de" hreflang="de" class="interlanguage-link-target">Deutsch</a></li><li class="interlanguage-link interwiki-el"><a href="https://el.wikipedia.org/wiki/AWK" title="AWK — греческий" lang="el" hreflang="el" class="interlanguage-link-target">Ελληνικά</a></li><li class="interlanguage-link interwiki-en"><a href="https://en.wikipedia.org/wiki/AWK" title="AWK — английский" lang="en" hreflang="en" class="interlanguage-link-target">English</a></li><li class="interlanguage-link interwiki-es"><a href="https://es.wikipedia.org/wiki/AWK" title="AWK — испанский" lang="es" hreflang="es" class="interlanguage-link-target">Español</a></li><li class="interlanguage-link interwiki-et"><a href="https://et.wikipedia.org/wiki/AWK" title="AWK — эстонский" lang="et" hreflang="et" class="interlanguage-link-target">Eesti</a></li><li class="interlanguage-link interwiki-fa"><a href="https://fa.wikipedia.org/wiki/AWK" title="AWK — персидский" lang="fa" hreflang="fa" class="interlanguage-link-target">فارسی</a></li><li class="interlanguage-link interwiki-fi"><a href="https://fi.wikipedia.org/wiki/AWK" title="AWK — финский" lang="fi" hreflang="fi" class="interlanguage-link-target">Suomi</a></li><li class="interlanguage-link interwiki-fr"><a href="https://fr.wikipedia.org/wiki/Awk" title="Awk — французский" lang="fr" hreflang="fr" class="interlanguage-link-target">Français</a></li><li class="interlanguage-link interwiki-gl"><a href="https://gl.wikipedia.org/wiki/AWK" title="AWK — галисийский" lang="gl" hreflang="gl" class="interlanguage-link-target">Galego</a></li><li class="interlanguage-link interwiki-he"><a href="https://he.wikipedia.org/wiki/AWK" title="AWK — иврит" lang="he" hreflang="he" class="interlanguage-link-target">עברית</a></li><li class="interlanguage-link interwiki-hr"><a href="https://hr.wikipedia.org/wiki/AWK" title="AWK — хорватский" lang="hr" hreflang="hr" class="interlanguage-link-target">Hrvatski</a></li><li class="interlanguage-link interwiki-hu"><a href="https://hu.wikipedia.org/wiki/Awk" title="Awk — венгерский" lang="hu" hreflang="hu" class="interlanguage-link-target">Magyar</a></li><li class="interlanguage-link interwiki-hy"><a href="https://hy.wikipedia.org/wiki/AWK" title="AWK — армянский" lang="hy" hreflang="hy" class="interlanguage-link-target">Հայերեն</a></li><li class="interlanguage-link interwiki-it"><a href="https://it.wikipedia.org/wiki/Awk" title="Awk — итальянский" lang="it" hreflang="it" class="interlanguage-link-target">Italiano</a></li><li class="interlanguage-link interwiki-ja"><a href="https://ja.wikipedia.org/wiki/AWK" title="AWK — японский" lang="ja" hreflang="ja" class="interlanguage-link-target">日本語</a></li><li class="interlanguage-link interwiki-ko"><a href="https://ko.wikipedia.org/wiki/AWK" title="AWK — корейский" lang="ko" hreflang="ko" class="interlanguage-link-target">한국어</a></li><li class="interlanguage-link interwiki-lv"><a href="https://lv.wikipedia.org/wiki/AWK" title="AWK — латышский" lang="lv" hreflang="lv" class="interlanguage-link-target">Latviešu</a></li><li class="interlanguage-link interwiki-ms"><a href="https://ms.wikipedia.org/wiki/AWK" title="AWK — малайский" lang="ms" hreflang="ms" class="interlanguage-link-target">Bahasa Melayu</a></li><li class="interlanguage-link interwiki-nl"><a href="https://nl.wikipedia.org/wiki/AWK" title="AWK — нидерландский" lang="nl" hreflang="nl" class="interlanguage-link-target">Nederlands</a></li><li class="interlanguage-link interwiki-nn"><a href="https://nn.wikipedia.org/wiki/Awk" title="Awk — нюнорск" lang="nn" hreflang="nn" class="interlanguage-link-target">Norsk nynorsk</a></li><li class="interlanguage-link interwiki-no"><a href="https://no.wikipedia.org/wiki/Awk" title="Awk — норвежский букмол" lang="nb" hreflang="nb" class="interlanguage-link-target">Norsk bokmål</a></li><li class="interlanguage-link interwiki-pl"><a href="https://pl.wikipedia.org/wiki/AWK" title="AWK — польский" lang="pl" hreflang="pl" class="interlanguage-link-target">Polski</a></li><li class="interlanguage-link interwiki-pt"><a href="https://pt.wikipedia.org/wiki/AWK" title="AWK — португальский" lang="pt" hreflang="pt" class="interlanguage-link-target">Português</a></li><li class="interlanguage-link interwiki-ro"><a href="https://ro.wikipedia.org/wiki/AWK" title="AWK — румынский" lang="ro" hreflang="ro" class="interlanguage-link-target">Română</a></li><li class="interlanguage-link interwiki-sh"><a href="https://sh.wikipedia.org/wiki/AWK" title="AWK — сербскохорватский" lang="sh" hreflang="sh" class="interlanguage-link-target">Srpskohrvatski / српскохрватски</a></li><li class="interlanguage-link interwiki-simple"><a href="https://simple.wikipedia.org/wiki/Awk" title="Awk — Simple English" lang="en-simple" hreflang="en-simple" class="interlanguage-link-target">Simple English</a></li><li class="interlanguage-link interwiki-sk"><a href="https://sk.wikipedia.org/wiki/AWK" title="AWK — словацкий" lang="sk" hreflang="sk" class="interlanguage-link-target">Slovenčina</a></li><li class="interlanguage-link interwiki-sr"><a href="https://sr.wikipedia.org/wiki/AWK" title="AWK — сербский" lang="sr" hreflang="sr" class="interlanguage-link-target">Српски / srpski</a></li><li class="interlanguage-link interwiki-sv"><a href="https://sv.wikipedia.org/wiki/Awk" title="Awk — шведский" lang="sv" hreflang="sv" class="interlanguage-link-target">Svenska</a></li><li class="interlanguage-link interwiki-tg"><a href="https://tg.wikipedia.org/wiki/Awk" title="Awk — таджикский" lang="tg" hreflang="tg" class="interlanguage-link-target">Тоҷикӣ</a></li><li class="interlanguage-link interwiki-th"><a href="https://th.wikipedia.org/wiki/%E0%B8%A0%E0%B8%B2%E0%B8%A9%E0%B8%B2%E0%B8%AD%E0%B8%AD%E0%B8%A7%E0%B9%8C%E0%B8%81" title="ภาษาออว์ก — тайский" lang="th" hreflang="th" class="interlanguage-link-target">ไทย</a></li><li class="interlanguage-link interwiki-tr"><a href="https://tr.wikipedia.org/wiki/AWK" title="AWK — турецкий" lang="tr" hreflang="tr" class="interlanguage-link-target">Türkçe</a></li><li class="interlanguage-link interwiki-uk"><a href="https://uk.wikipedia.org/wiki/AWK" title="AWK — украинский" lang="uk" hreflang="uk" class="interlanguage-link-target">Українська</a></li><li class="interlanguage-link interwiki-vi"><a href="https://vi.wikipedia.org/wiki/AWK" title="AWK — вьетнамский" lang="vi" hreflang="vi" class="interlanguage-link-target">Tiếng Việt</a></li><li class="interlanguage-link interwiki-zh"><a href="https://zh.wikipedia.org/wiki/AWK" title="AWK — китайский" lang="zh" hreflang="zh" class="interlanguage-link-target">中文</a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q213970#sitelinks-wikipedia" title="Править межъязыковые ссылки" class="wbc-editpage">Править ссылки</a></span></div>
+	</div>
+</div>
+
+    </div>
+</div>
+
+
+<div id="footer" role="contentinfo" >
+	<ul id="footer-info" class="">
+		<li id="footer-info-lastmod"> Эта страница в последний раз была отредактирована 4 августа 2018 в 17:53.</li>
+		<li id="footer-info-copyright">Текст доступен по <a rel="license" href="//ru.wikipedia.org/wiki/Википедия:Текст_лицензии_Creative_Commons_Attribution-ShareAlike_3.0_Unported">лицензии Creative Commons Attribution-ShareAlike</a><a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>; в отдельных случаях могут действовать дополнительные условия.
+<span class="noprint">Подробнее см. <a href="//foundation.wikimedia.org/wiki/Terms_of_Use/ru">Условия использования</a>.</span><br>
+Wikipedia® — зарегистрированный товарный знак некоммерческой организации <a href="//wikimediafoundation.org">Wikimedia Foundation, Inc.</a></li>
+	</ul>
+	<ul id="footer-places" class="">
+		<li id="footer-places-privacy"><a href="https://meta.wikimedia.org/wiki/Privacy_policy/ru" class="extiw" title="m:Privacy policy/ru">Политика конфиденциальности</a></li>
+		<li id="footer-places-about"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5" title="Википедия:Описание">Описание Википедии</a></li>
+		<li id="footer-places-disclaimer"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%9E%D1%82%D0%BA%D0%B0%D0%B7_%D0%BE%D1%82_%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8" title="Википедия:Отказ от ответственности">Отказ от ответственности</a></li>
+		<li id="footer-places-contact"><a href="//ru.wikipedia.org/wiki/Википедия:Контакты">Свяжитесь с нами</a></li>
+		<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Разработчики</a></li>
+		<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/ru.wikipedia.org">Статистика</a></li>
+		<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Заявление о куки</a></li>
+		<li id="footer-places-mobileview"><a href="//ru.m.wikipedia.org/w/index.php?title=AWK&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Мобильная версия</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="/static/images/wikimedia-button.png" srcset="/static/images/wikimedia-button-1.5x.png 1.5x, /static/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/static/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/poweredby_mediawiki_132x47.png 1.5x, /static/images/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</div>
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.368","walltime":"0.516","ppvisitednodes":{"value":1363,"limit":1000000},"postexpandincludesize":{"value":87202,"limit":2097152},"templateargumentsize":{"value":8529,"limit":2097152},"expansiondepth":{"value":25,"limit":40},"expensivefunctioncount":{"value":11,"limit":500},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"entityaccesscount":{"value":13,"limit":400},"timingprofile":["100.00%  425.659      1 -total"," 77.54%  330.044      1 Шаблон:Карточка_языка_программирования"," 72.71%  309.483      1 Шаблон:Карточка"," 48.92%  208.213      6 Шаблон:Wikidata"," 20.66%   87.938      2 Шаблон:Удалить_теги"," 14.85%   63.214      4 Шаблон:Навигационная_таблица","  9.91%   42.189      1 Шаблон:Команды_Unix","  4.81%   20.489      1 Шаблон:Нп5","  3.92%   16.693      4 Шаблон:Ref-ru","  3.47%   14.776      1 Шаблон:POSIX.1-2008"]},"scribunto":{"limitreport-timeusage":{"value":"0.201","limit":"10.000"},"limitreport-memusage":{"value":4176195,"limit":52428800},"limitreport-logs":"Loaded datatype commonsMedia of P154 from wikidata, consider passing datatype argument to formatProperty call or to Wikidata/config\nLoaded datatype wikibase-item of P178 from wikidata, consider passing datatype argument to formatProperty call or to Wikidata/config\nLoaded datatype wikibase-item of P287 from wikidata, consider passing datatype argument to formatProperty call or to Wikidata/config\nLoaded datatype wikibase-item of P178 from wikidata, consider passing datatype argument to formatProperty call or to Wikidata/config\nLoaded datatype string of P348 from wikidata, consider passing datatype argument to formatProperty call or to Wikidata/config\nLoaded datatype string of P348 from wikidata, consider passing datatype argument to formatProperty call or to Wikidata/config\nLoaded datatype wikibase-item of P287 from wikidata, consider passing datatype argument to formatProperty call or to Wikidata/config\nLoaded datatype string of P1195 from wikidata, consider passing datatype argument to formatProperty call or to Wikidata/config\nLoaded datatype wikibase-item of P737 from wikidata, consider passing datatype argument to formatProperty call or to Wikidata/config\nLoaded datatype wikibase-item of P275 from wikidata, consider passing datatype argument to formatProperty call or to Wikidata/config\nLoaded datatype wikibase-item of P400 from wikidata, consider passing datatype argument to formatProperty call or to Wikidata/config\nLoaded datatype wikibase-item of P306 from wikidata, consider passing datatype argument to formatProperty call or to Wikidata/config\n"},"cachereport":{"origin":"mw1314","timestamp":"20200304005301","ttl":86400,"transientcontent":true}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"AWK","url":"https:\/\/ru.wikipedia.org\/wiki\/AWK","sameAs":"http:\/\/www.wikidata.org\/entity\/Q213970","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q213970","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"\u0424\u043e\u043d\u0434 \u0412\u0438\u043a\u0438\u043c\u0435\u0434\u0438\u0430","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2004-10-28T21:02:31Z","dateModified":"2018-08-04T17:53:10Z"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":146,"wgHostname":"mw1273"});});</script></body></html>
+
