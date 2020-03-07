@@ -30,7 +30,7 @@ def extract_content(page: str) -> tuple:
     содержимое статьи.
     Если содержимое отсутствует, возвращается (0, 0).
     """
-    return page.find('<body'), page.find('</body')
+    return page.find('<div id="mw-content-text">'), page.find('</body')
 
 
 def extract_links(page: str, begin: int, end: int) -> list:
