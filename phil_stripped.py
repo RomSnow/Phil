@@ -39,7 +39,7 @@ def extract_links(page: str, begin: int, end: int) -> list:
     задающего позицию содержимого статьи на странице и возвращает все имеющиеся
     ссылки на другие вики-страницы без повторений и с учётом регистра.
     """
-    links = set(re.findall(r'"/wiki/([^\.]*?)"', page[begin:end]))
+    links = set(re.findall(r'["\']/wiki/([^.#:]*?)["\']', page[begin:end]))
     links = list(links)
     for index, link in enumerate(links):
         links[index] = unquote(link)
@@ -76,14 +76,12 @@ def find_chain(start: str, finish: str) -> list:
 
 
 def main():
-    page = get_content('Архимед')
-    begin, end = extract_content(page)
-    links = extract_links(page, begin, end)
-    print(len(links))
-    print(find_chain('Архимед', 'Философия'))
-    # start_link = 'Философия_науки'
-    # finish_link = 'История_философии'
-    # print(find_path(start_link, finish_link, [], 0))
+    text = """<a href='/wiki/C:x'>link</a><span>Some text
+</span><a  href="/wiki/Link_one">link</a><a href="/wiki/Link_one#tt"></a><div>
+<a href='#qq'><span>qq</span></a> <a href="/w/index.php?title=tt"></a></div>
+<a href='/wiki/1946_%D0%B3%D0%BE%D0%B4' title="1946 год">1946</a>
+<a href=''"""
+    print(extract_links(text, 0, len(text)))
 
 
 if __name__ == '__main__':
