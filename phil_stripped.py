@@ -4,6 +4,7 @@ from urllib.parse import quote, unquote
 from urllib.error import URLError, HTTPError
 import re
 
+PATTERN = re.compile(r'["\']/wiki/([^.#:]*?)["\']')
 
 def get_content(name: str) -> str:
     """
@@ -30,7 +31,8 @@ def extract_content(page: str) -> tuple:
     if page is None:
         return 0, 0
 
-    return page.find(r'<div id="mw-content-text"'), page.find(r'<div id="catlinks"')
+    return page.find(r'<div id="mw-content-text"'), \
+           page.find(r'<div id="catlinks"')
 
 
 def extract_links(page: str, begin: int, end: int) -> list:
@@ -39,7 +41,7 @@ def extract_links(page: str, begin: int, end: int) -> list:
     задающего позицию содержимого статьи на странице и возвращает все имеющиеся
     ссылки на другие вики-страницы без повторений и с учётом регистра.
     """
-    links = set(re.findall(r'["\']/wiki/([^.#:]*?)["\']', page[begin:end]))
+    links = set(re.findall(PATTERN, page[begin:end]))
     links = list(links)
     for index, link in enumerate(links):
         links[index] = unquote(link)
