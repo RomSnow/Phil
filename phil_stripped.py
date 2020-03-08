@@ -4,6 +4,8 @@ from urllib.parse import quote, unquote
 from urllib.error import URLError, HTTPError
 import re
 
+CONTENT_BEGIN_PATTERN = re.compile(r'<div id="mw-content-text"')
+CONTENT_END_PATTERN = re.compile(r'<div id="catlinks"')
 PATTERN = re.compile(r'["\']/wiki/([^.#:]*?)["\']')
 
 
@@ -12,13 +14,13 @@ def get_content(name: str) -> str:
     Функция возвращает содержимое вики-страницы name из русской Википедии.
     В случае ошибки загрузки или отсутствия страницы возвращается None.
     """
-    link = 'http://ru.wikipedia.org/wiki/' + quote(name)
     try:
-        page = urlopen(link)
+        with urlopen('http://ru.wikipedia.org/wiki/' + quote(name)) as link:
+            page = link.read().decode('utf-8')
     except (URLError, HTTPError):
         return None
 
-    return page.read().decode('utf-8')
+    return page
 
 
 def extract_content(page: str) -> tuple:
@@ -32,8 +34,9 @@ def extract_content(page: str) -> tuple:
     if page is None:
         return 0, 0
 
-    return (page.find(r'<div id="mw-content-text"'),
-            page.find(r'<div id="catlinks"'))
+    begin = re.search(CONTENT_BEGIN_PATTERN, page)
+    end = re.search(CONTENT_END_PATTERN, page)
+    return begin.start(), end.start()
 
 
 def extract_links(page: str, begin: int, end: int) -> list:
