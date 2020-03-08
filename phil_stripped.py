@@ -4,8 +4,8 @@ from urllib.parse import quote, unquote
 from urllib.error import URLError, HTTPError
 import re
 
-CONTENT_BEGIN_PATTERN = re.compile(r'<div id="mw-content-text"')
-CONTENT_END_PATTERN = re.compile(r'<div id="catlinks"')
+CONTENT_BEGIN_PATTERN = re.compile('<p><b>')
+CONTENT_END_PATTERN = re.compile(r'</body>')
 PATTERN = re.compile(r'["\']/wiki/([^.#:]*?)["\']')
 
 
@@ -34,9 +34,9 @@ def extract_content(page: str) -> tuple:
     if page is None:
         return 0, 0
 
-    begin = re.search(CONTENT_BEGIN_PATTERN, page)
-    end = re.search(CONTENT_END_PATTERN, page)
-    return begin.start(), end.start()
+    begin = re.search(CONTENT_BEGIN_PATTERN, page).end()
+    end = re.search(CONTENT_END_PATTERN, page).start()
+    return begin, end
 
 
 def extract_links(page: str, begin: int, end: int) -> list:
@@ -47,10 +47,10 @@ def extract_links(page: str, begin: int, end: int) -> list:
     """
     if page is None:
         return []
-    links = set(re.findall(PATTERN, page[begin:end]))
-    links = list(links)
-    for index, link in enumerate(links):
-        links[index] = unquote(link)
+    links = []
+    for link in re.findall(PATTERN, page[begin:end]):
+        if link not in links:
+            links.append(unquote(link))
 
     return links
 
