@@ -32,8 +32,8 @@ def extract_content(page: str) -> tuple:
     if page is None:
         return 0, 0
 
-    return page.find(r'<div id="mw-content-text"'), \
-           page.find(r'<div id="catlinks"')
+    return (page.find(r'<div id="mw-content-text"'),
+            page.find(r'<div id="catlinks"'))
 
 
 def extract_links(page: str, begin: int, end: int) -> list:
