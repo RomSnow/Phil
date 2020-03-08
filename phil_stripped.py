@@ -6,6 +6,7 @@ import re
 
 PATTERN = re.compile(r'["\']/wiki/([^.#:]*?)["\']')
 
+
 def get_content(name: str) -> str:
     """
     Функция возвращает содержимое вики-страницы name из русской Википедии.
@@ -17,7 +18,7 @@ def get_content(name: str) -> str:
     except (URLError, HTTPError):
         return None
 
-    return page.read().decode('utf=8')
+    return page.read().decode('utf-8')
 
 
 def extract_content(page: str) -> tuple:
@@ -41,12 +42,22 @@ def extract_links(page: str, begin: int, end: int) -> list:
     задающего позицию содержимого статьи на странице и возвращает все имеющиеся
     ссылки на другие вики-страницы без повторений и с учётом регистра.
     """
+    if page is None:
+        return []
     links = set(re.findall(PATTERN, page[begin:end]))
     links = list(links)
     for index, link in enumerate(links):
         links[index] = unquote(link)
 
     return links
+
+
+def replace_yo_ye(name: str) -> str:
+    name = list(name)
+    for i, letter in enumerate(name):
+        if not letter.isalpha() and letter not in '()_:-/,.':
+            name[i] = ''
+    return str.join('', name)
 
 
 def find_chain(start: str, finish: str) -> list:
@@ -57,13 +68,14 @@ def find_chain(start: str, finish: str) -> list:
     Если построить переходы невозможно, возвращается None.
     """
     path = [start]
-    current_name = start
+    current_name = replace_yo_ye(start)
     while True:
-        print(current_name)
         path.append(current_name)
         if current_name == finish:
             break
         page = get_content(current_name)
+        if not page:
+            return None
         links = extract_links(page, *extract_content(page))
         if finish in links:
             path.append(finish)
